@@ -1,0 +1,279 @@
+	<div class="listb">
+		
+		<ul>
+			
+			<li id="pro_11">
+			<!-- 
+				<a href="javascript:getCities('11')"><span class="hui">北京市</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">北京市</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_12">
+			<!-- 
+				<a href="javascript:getCities('12')"><span class="hui">天津市</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">天津市</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_13">
+			<!-- 
+				<a href="javascript:getCities('13')"><span class="hui">河北省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">河北省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_14">
+			<!-- 
+				<a href="javascript:getCities('14')"><span class="hui">山西省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">山西省</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+			<li id="pro_15">
+			<!-- 
+				<a href="javascript:getCities('15')"><span class="hui">内蒙古</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">内蒙古</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_21">
+			<!-- 
+				<a href="javascript:getCities('21')"><span class="hui">辽宁省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">辽宁省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_22">
+			<!-- 
+				<a href="javascript:getCities('22')"><span class="hui">吉林省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">吉林省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_23">
+			<!-- 
+				<a href="javascript:getCities('23')"><span class="hui">黑龙江</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">黑龙江</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+			<li id="pro_31">
+			<!-- 
+				<a href="javascript:getCities('31')"><span class="hui">上海市</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">上海市</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_32">
+			<!-- 
+				<a href="javascript:getCities('32')"><span class="hui">江苏省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">江苏省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_33">
+			<!-- 
+				<a href="javascript:getCities('33')"><span class="hui">浙江省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">浙江省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_34">
+			<!-- 
+				<a href="javascript:getCities('34')"><span class="hui">安徽省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">安徽省</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+			<li id="pro_35">
+			<!-- 
+				<a href="javascript:getCities('35')"><span class="hui">福建省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">福建省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_36">
+			<!-- 
+				<a href="javascript:getCities('36')"><span class="hui">江西省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">江西省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_37">
+			<!-- 
+				<a href="javascript:getCities('37')"><span class="hui">山东省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">山东省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_41">
+			<!-- 
+				<a href="javascript:getCities('41')"><span class="hui">河南省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">河南省</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+			<li id="pro_42">
+			<!-- 
+				<a href="javascript:getCities('42')"><span class="hui">湖北省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">湖北省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_43">
+			<!-- 
+				<a href="javascript:getCities('43')"><span class="hui">湖南省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">湖南省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_44">
+			<!-- 
+				<a href="javascript:getCities('44')"><span class="hui">广东省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">广东省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_45">
+			<!-- 
+				<a href="javascript:getCities('45')"><span class="hui">广西</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">广西</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+			<li id="pro_46">
+			<!-- 
+				<a href="javascript:getCities('46')"><span class="hui">海南省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">海南省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_50">
+			<!-- 
+				<a href="javascript:getCities('50')"><span class="hui">重庆市</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">重庆市</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_51">
+			<!-- 
+				<a href="javascript:getCities('51')"><span class="hui">四川省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">四川省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_52">
+			<!-- 
+				<a href="javascript:getCities('52')"><span class="hui">贵州省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">贵州省</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+			<li id="pro_53">
+			<!-- 
+				<a href="javascript:getCities('53')"><span class="hui">云南省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">云南省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_54">
+			<!-- 
+				<a href="javascript:getCities('54')"><span class="hui">西藏</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">西藏</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_61">
+			<!-- 
+				<a href="javascript:getCities('61')"><span class="hui">陕西省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">陕西省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_62">
+			<!-- 
+				<a href="javascript:getCities('62')"><span class="hui">甘肃省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">甘肃省</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+			<li id="pro_63">
+			<!-- 
+				<a href="javascript:getCities('63')"><span class="hui">青海省</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">青海省</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_64">
+			<!-- 
+				<a href="javascript:getCities('64')"><span class="hui">宁夏</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">宁夏</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_65">
+			<!-- 
+				<a href="javascript:getCities('65')"><span class="hui">新疆</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">新疆</span><span class="hui">（0人）</span>
+			</li>
+				
+			
+			<li id="pro_66">
+			<!-- 
+				<a href="javascript:getCities('66')"><span class="hui">其他</span><span class="hui">（0人）</span></a>
+			 -->
+				<span class="hui">其他</span><span class="hui">（0人）</span>
+			</li>
+				
+				<br>
+				
+			
+		</ul>
+		
+</div>
