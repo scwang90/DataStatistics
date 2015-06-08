@@ -25,7 +25,7 @@ import com.datastatistics.util.AfStackTrace;
  * DbUtil - MYSQL 对 MultiDao 接口的实现
  * @param <T>
  * @author 树朾
- * @date 2015-06-09 01:44:14 中国标准时间 
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class BaseDaoDbUtilMYSQLImpl<T> implements MultiDao<T> {
 

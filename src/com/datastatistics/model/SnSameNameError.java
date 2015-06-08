@@ -3,11 +3,10 @@ package com.datastatistics.model;
 
 import com.datastatistics.annotations.dbmodel.Id;
 import com.datastatistics.annotations.dbmodel.Table;
-import com.datastatistics.annotations.dbmodel.Column;
 /**
  * 数据库表sn_same_name_error
  * @author 树朾
- * @date 2015-06-09 01:44:14 中国标准时间 
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 @Table("sn_same_name_error")
 public class SnSameNameError{
@@ -30,10 +29,6 @@ public class SnSameNameError{
 	 * 创建时间
 	 */
 	private java.util.Date createTime;
-	/**
-	 * 第三方
-	 */\u000A@Column("ss_sss")\u000A
-	private java.util.Date ssSss;
 
 	public SnSameNameError() {
 		// TODO Auto-generated constructor stub
@@ -69,14 +64,6 @@ public class SnSameNameError{
 
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
-	}
-		
-	public java.util.Date getSsSss(){
-		return this.ssSss;
-	}
-
-	public void setSsSss(java.util.Date ssSss) {
-		this.ssSss = ssSss;
 	}
 		
 

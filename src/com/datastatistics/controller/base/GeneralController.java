@@ -10,7 +10,7 @@ import com.datastatistics.util.Page;
  * Controller 层通用处理事务基类
  * @param <T>
  * @author 树朾
- * @date 2015-06-09 01:44:14 中国标准时间 
+ * @date 2015-06-09 02:10:51 中国标准时间 
  */
 public class GeneralController<T> extends BaseController{
 	

@@ -7,7 +7,7 @@ import com.datastatistics.util.AfReflecter;
  * 通用Dao实现基类
  * @param <T>
  * @author 树朾
- * @date 2015-06-09 01:44:14 中国标准时间 
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class BaseDaoImpl<T> extends BaseDaoDbUtilMYSQLImpl<T> implements BaseDao<T>{
 

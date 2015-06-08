@@ -5,7 +5,7 @@ import java.util.List;
  * 多功能Dao层接口
  * @param <T>
  * @author 树朾
- * @date 2015-06-09 01:44:14 中国标准时间 
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public interface MultiDao<T> extends BaseDao<T>{
 
