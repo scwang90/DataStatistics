@@ -1,8 +1,9 @@
 package com.datastatistics.util;
 
 /**
- * 获取Session
- * @Author SCWANG
+ * 获取Session工具类
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class SessionUtil {
 

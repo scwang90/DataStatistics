@@ -24,6 +24,8 @@ import java.lang.annotation.Target;
 /**
  * The Interface Column.
  * 表示列
+ * @author 树朾
+ * @date 2015-06-09 02:10:51 中国标准时间 
  */
 @Target( { ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)

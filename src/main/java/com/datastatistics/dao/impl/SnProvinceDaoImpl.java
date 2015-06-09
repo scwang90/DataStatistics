@@ -9,11 +9,18 @@ import com.datastatistics.dao.SnProvinceDao;
 import com.datastatistics.model.SnProvince;
 /**
  * 数据库表sn_province的Dao实现
- * @author Administrator
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间     
  */
 @Repository
 public class SnProvinceDaoImpl extends BaseDaoImpl<SnProvince> implements SnProvinceDao{
 
+	
+	public SnProvinceDaoImpl() {
+		// TODO Auto-generated constructor stub
+		order = "ORDER BY code";
+	}
+	
 	@Override
 	public int insert(SnProvince t) throws Exception {
 		// TODO Auto-generated method stub
@@ -56,3 +63,4 @@ public class SnProvinceDaoImpl extends BaseDaoImpl<SnProvince> implements SnProv
 		return super.findByPage(limit, start);
 	}
 }
+

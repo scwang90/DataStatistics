@@ -4,9 +4,8 @@ import java.util.regex.Pattern;
 
 /**
  * @Description: 字符串常用工具类
- * @Author: scwang
- * @Version: V1.0, 2015-1-26 下午12:23:15
- * @Modified: 初次创建AfStringUtil类
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class AfStringUtil {
 

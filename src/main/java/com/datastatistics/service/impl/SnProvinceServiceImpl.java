@@ -10,7 +10,8 @@ import com.datastatistics.util.Page;
 
 /**
  * 数据库表sn_province的Service接实现
- * @author Administrator
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间     
  */
 @Service
 public class SnProvinceServiceImpl extends BaseServiceImpl<SnProvince> implements SnProvinceService{

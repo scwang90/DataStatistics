@@ -6,6 +6,7 @@ import com.datastatistics.annotations.dbmodel.Table;
 /**
  * 数据库表sn_province
  * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 @Table("sn_province")
 public class SnProvince{
@@ -15,22 +16,18 @@ public class SnProvince{
 	/**
 	 * 主键ID
 	 */
-	
 	private String keyId;
 	/**
 	 * 省份的名称
 	 */
-	
 	private String name;
 	/**
 	 * 省份所国家统一编号
 	 */
-	
 	private Short code;
 	/**
 	 * 创建时间
 	 */
-	
 	private java.util.Date createTime;
 
 	public SnProvince() {

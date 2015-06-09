@@ -10,7 +10,8 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 /**
  * @ClassName: C3P0Factory
  * @Description: 数据库连接工厂类
- * @author: 孤傲苍狼
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class C3P0Factory {
 
@@ -29,7 +30,7 @@ public class C3P0Factory {
 	/**
 	 * @Method: getConnection
 	 * @Description: 从数据源中获取数据库连接
-	 * @Anthor:孤傲苍狼
+	 * @Anthor:树朾
 	 * @return Connection
 	 * @throws SQLException
 	 */
@@ -49,7 +50,7 @@ public class C3P0Factory {
 	 * @throws SQLException
 	 * @Method: startTransaction
 	 * @Description: 开启事务
-	 * @Anthor:孤傲苍狼
+	 * @Anthor:树朾
 	 */
 	public static void startTransaction() throws SQLException {
 		// 开启事务
@@ -60,7 +61,7 @@ public class C3P0Factory {
 	 * @throws SQLException
 	 * @Method: rollback
 	 * @Description:回滚事务
-	 * @Anthor:孤傲苍狼
+	 * @Anthor:树朾
 	 *
 	 */
 	public static void rollback() throws SQLException {
@@ -76,7 +77,7 @@ public class C3P0Factory {
 	 * @throws SQLException
 	 * @Method: commit
 	 * @Description:提交事务
-	 * @Anthor:孤傲苍狼
+	 * @Anthor:树朾
 	 */
 	public static void commit() throws SQLException {
 		// 从当前线程中获取Connection
@@ -91,7 +92,7 @@ public class C3P0Factory {
 	 * @throws SQLException 
 	 * @Method: close
 	 * @Description:关闭数据库连接(注意，并不是真的关闭，而是把连接还给数据库连接池)
-	 * @Anthor:孤傲苍狼
+	 * @Anthor:树朾
 	 *
 	 */
 	public static void close() throws SQLException {
@@ -107,7 +108,7 @@ public class C3P0Factory {
 	/**
 	 * @Method: getDataSource
 	 * @Description: 获取数据源
-	 * @Anthor:孤傲苍狼
+	 * @Anthor:树朾
 	 * @return DataSource
 	 */
 	public static DataSource getDataSource() {

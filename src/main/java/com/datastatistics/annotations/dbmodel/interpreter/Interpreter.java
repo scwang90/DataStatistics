@@ -13,7 +13,8 @@ import com.datastatistics.annotations.dbmodel.Table;
 import com.datastatistics.util.AfStringUtil;
 /**
  * db.annotation 解释器
- * @author scwang
+ * @author 树朾
+ * @date 2015-06-09 02:10:51 中国标准时间  
  */
 public class Interpreter {
 	

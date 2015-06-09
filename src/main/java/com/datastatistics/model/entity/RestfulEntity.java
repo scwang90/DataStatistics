@@ -2,7 +2,11 @@ package com.datastatistics.model.entity;
 
 import java.io.Serializable;
 
-
+/**
+ * Restful返回实体类
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
+ */
 public class RestfulEntity implements Serializable {
 
 	private static final long serialVersionUID = 7003037513889860450L;

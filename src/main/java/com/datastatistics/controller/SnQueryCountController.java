@@ -4,14 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.datastatistics.annotations.Intent;
 import com.datastatistics.controller.base.GeneralController;
 import com.datastatistics.model.SnQueryCount;
 
 /**
  * 数据库表sn_query_count 的Controller层实现
  * @author 树朾
+ * @date 2015-06-09 02:10:51 中国标准时间     
  */
 @Controller
+@Intent("数据库表sn_query_count")
 @RequestMapping("SnQueryCount")
 public class SnQueryCountController extends GeneralController<SnQueryCount>{
 
@@ -110,7 +113,6 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 		// TODO Auto-generated method stub
 		return super.getListByPage(pageSize, pageNo);
 	}
-
 
 
 }

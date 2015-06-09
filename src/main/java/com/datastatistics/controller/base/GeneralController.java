@@ -7,8 +7,10 @@ import com.datastatistics.service.BaseService;
 import com.datastatistics.util.Page;
 
 /**
- * @author Administrator
+ * Controller 层通用处理事务基类
  * @param <T>
+ * @author 树朾
+ * @date 2015-06-09 02:10:51 中国标准时间 
  */
 public class GeneralController<T> extends BaseController{
 	

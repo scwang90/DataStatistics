@@ -9,7 +9,8 @@ import com.datastatistics.dao.SnQueryCountDao;
 import com.datastatistics.model.SnQueryCount;
 /**
  * 数据库表sn_query_count的Dao实现
- * @author Administrator
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间     
  */
 @Repository
 public class SnQueryCountDaoImpl extends BaseDaoImpl<SnQueryCount> implements SnQueryCountDao{
@@ -56,3 +57,4 @@ public class SnQueryCountDaoImpl extends BaseDaoImpl<SnQueryCount> implements Sn
 		return super.findByPage(limit, start);
 	}
 }
+

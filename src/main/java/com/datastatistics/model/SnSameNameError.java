@@ -6,6 +6,7 @@ import com.datastatistics.annotations.dbmodel.Table;
 /**
  * 数据库表sn_same_name_error
  * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 @Table("sn_same_name_error")
 public class SnSameNameError{
@@ -15,22 +16,18 @@ public class SnSameNameError{
 	/**
 	 * 主键ID
 	 */
-	
 	private String keyId;
 	/**
 	 * 统计名称
 	 */
-	
 	private String sameName;
 	/**
 	 * 各个省份的数量统计，逗号隔开的，int
 	 */
-	
 	private String countProvince;
 	/**
 	 * 创建时间
 	 */
-	
 	private java.util.Date createTime;
 
 	public SnSameNameError() {

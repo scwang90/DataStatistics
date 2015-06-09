@@ -9,7 +9,8 @@ import com.datastatistics.dao.SnSameNameDao;
 import com.datastatistics.model.SnSameName;
 /**
  * 数据库表sn_same_name的Dao实现
- * @author Administrator
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间     
  */
 @Repository
 public class SnSameNameDaoImpl extends BaseDaoImpl<SnSameName> implements SnSameNameDao{
@@ -56,3 +57,4 @@ public class SnSameNameDaoImpl extends BaseDaoImpl<SnSameName> implements SnSame
 		return super.findByPage(limit, start);
 	}
 }
+

@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * java 反射工具类
- * @author SCWANG
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class AfReflecter {
 

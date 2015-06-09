@@ -24,7 +24,7 @@ import java.lang.annotation.Target;
  * The Interface Id.
  * 主键
  * @author 树朾
- * @date 2015-06-09 02:10:51 中国标准时间 
+ * @date 2015-06-10 02:46:07 中国标准时间 
  */
 @Target( { ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)

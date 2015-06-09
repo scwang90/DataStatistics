@@ -11,7 +11,7 @@ import com.datastatistics.model.SnProvince;
 /**
  * 数据库表sn_province 的Controller层实现
  * @author 树朾
- * @date 2015-06-09 02:10:51 中国标准时间     
+ * @date 2015-06-10 02:46:08 中国标准时间     
  */
 @Controller
 @Intent("数据库表sn_province")

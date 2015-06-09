@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 
-import com.datastatistics.util.ResultUtil;
-
-
+/**
+ * Controller 层基类
+ * @author 树朾
+ * @date 2015-06-09 02:10:51 中国标准时间 
+ */
 public class BaseController {
 	
 	protected void bindModel(Model model, HttpServletRequest request) {
@@ -15,11 +17,11 @@ public class BaseController {
 //		model.addAttribute("title", title);
 	}
 
-	protected String success(Object message){
-		return ResultUtil.getSuccess(message);
-	}
-	
-	protected String failure(Object message){
-		return ResultUtil.getFailure(message);
-	}
+//	protected String success(Object message){
+//		return ResultUtil.getSuccess(message);
+//	}
+//	
+//	protected String failure(Object message){
+//		return ResultUtil.getFailure(message);
+//	}
 }

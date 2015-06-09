@@ -5,7 +5,7 @@ import com.datastatistics.model.SnQueryCount;
 /**
  * 数据库表sn_query_count的Dao接口
  * @author 树朾
- * @date 2015-06-09 02:10:52 中国标准时间     
+ * @date 2015-06-10 02:46:08 中国标准时间     
  */
 public interface SnQueryCountDao extends BaseDao<SnQueryCount>{
 

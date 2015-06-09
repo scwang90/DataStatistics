@@ -10,7 +10,8 @@ import com.datastatistics.util.Page;
 
 /**
  * 数据库表sn_same_name_error的Service接实现
- * @author Administrator
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间     
  */
 @Service
 public class SnSameNameErrorServiceImpl extends BaseServiceImpl<SnSameNameError> implements SnSameNameErrorService{

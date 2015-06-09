@@ -11,7 +11,7 @@ import com.datastatistics.util.Page;
 /**
  * 数据库表sn_same_name的Service接实现
  * @author 树朾
- * @date 2015-06-09 02:10:52 中国标准时间     
+ * @date 2015-06-10 02:46:08 中国标准时间     
  */
 @Service
 public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implements SnSameNameService{

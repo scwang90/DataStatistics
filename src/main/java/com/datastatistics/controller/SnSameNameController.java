@@ -1,40 +1,23 @@
 package com.datastatistics.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.datastatistics.annotations.Intent;
 import com.datastatistics.controller.base.GeneralController;
 import com.datastatistics.model.SnSameName;
-import com.datastatistics.service.SnSameNameService;
 
 /**
  * 数据库表sn_same_name 的Controller层实现
  * @author 树朾
+ * @date 2015-06-09 02:10:51 中国标准时间     
  */
 @Controller
+@Intent("数据库表sn_same_name")
 @RequestMapping("SnSameName")
 public class SnSameNameController extends GeneralController<SnSameName>{
 
-	@Autowired 
-	SnSameNameService service;
-	
-	/**
-	 * 客户端查询结果提交
-	 * @param name 查询名称
-	 * @param value 查询结果
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="submit"/*,consumes="application/json;charset=UTF-8"*/)
-	public SnSameName submit(/*@RequestBody */final String sameName){
-		return new SnSameName();
-		//		return new Execute() {public Object execute() throws Exception {
-//			service.insert(JacksonUtil.toObject(sameName, SnSameName.class));
-//			return null;
-//		}}.exe("提交%s");
-	}
 	/**
 	 * 添加信息
 	 * @param model
@@ -130,7 +113,6 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 		// TODO Auto-generated method stub
 		return super.getListByPage(pageSize, pageNo);
 	}
-
 
 
 }

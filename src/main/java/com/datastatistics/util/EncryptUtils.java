@@ -2,8 +2,9 @@ package com.datastatistics.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /**
- * 
- * @author SCWANG
+ * MD5-SHA 编码器
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class EncryptUtils {  
     /** 

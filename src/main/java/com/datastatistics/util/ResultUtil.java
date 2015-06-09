@@ -1,5 +1,10 @@
 package com.datastatistics.util;
 
+/**
+ * Controller 返回实体类
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
+ */
 public class ResultUtil {
 
 	private boolean result;

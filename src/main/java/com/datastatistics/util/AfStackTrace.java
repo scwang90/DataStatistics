@@ -4,10 +4,11 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 /**
- * @Description: java堆栈工具类 1.可以查看当前函数名称 2.可以判断当前函数是否已经递归调用
- * @Author: scwang
- * @Version: V1.0, 2015-3-13 下午4:58:20
- * @Modified: 初次创建AfStackTrace类
+ * @Description: java堆栈工具类 
+ * 1.可以查看当前函数名称 
+ * 2.可以判断当前函数是否已经递归调用
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public class AfStackTrace {
 

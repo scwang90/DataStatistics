@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * @Description: 数据分页列表信息
- * @Author: scwang
- * @Version: V1.0, 2015-3-9 上午10:34:45
- * @Modified: 初次创建Page类
  * @param <T> 数据实体类
+ * @author 树朾
+ * @date 2015-06-09 02:10:52 中国标准时间 
  */
 public abstract class Page<T>{
 	
