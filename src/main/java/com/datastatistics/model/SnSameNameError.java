@@ -3,6 +3,7 @@ package com.datastatistics.model;
 
 import com.datastatistics.annotations.dbmodel.Id;
 import com.datastatistics.annotations.dbmodel.Table;
+import com.datastatistics.util.JacksonUtil;
 /**
  * 数据库表sn_same_name_error
  * @author 树朾
@@ -64,6 +65,11 @@ public class SnSameNameError{
 
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public static SnSameNameError from(SnSameName model) {
+		// TODO Auto-generated method stub
+		return JacksonUtil.toObject(JacksonUtil.toJson(model), SnSameNameError.class);
 	}
 		
 

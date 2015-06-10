@@ -1,6 +1,8 @@
 package com.datastatistics.model;
 
 
+import java.util.Date;
+
 import com.datastatistics.annotations.dbmodel.Id;
 import com.datastatistics.annotations.dbmodel.Table;
 /**
@@ -64,6 +66,15 @@ public class SnQueryCount{
 
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public static SnQueryCount from(SnSameName model) {
+		// TODO Auto-generated method stub
+		SnQueryCount count = new SnQueryCount();
+		count.count = 1;
+		count.sameNameId = model.getKeyId();
+		count.createTime = new Date();
+		return count;
 	}
 		
 

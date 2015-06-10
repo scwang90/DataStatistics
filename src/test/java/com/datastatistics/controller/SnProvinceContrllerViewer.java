@@ -27,8 +27,9 @@ public class SnProvinceContrllerViewer {
 		AppConfig.setCharset("UTF-16");
 	}
 	
+
 	@Test
-	public void submit() throws HttpException {
+	public void getALl() throws HttpException {
 		try {
 			HttpMethod method = HttpMethod.POST;
 			SnSameName name = new SnSameName();
@@ -36,7 +37,8 @@ public class SnProvinceContrllerViewer {
 			name.setCountProvince("[{e:[22,33]},{e:[22,33]}]");
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("sameName", JacksonUtil.toJson(name));
-			Response doRequest = request.doRequest(method , "/SnSameName/submit",null,null,map);
+			Response doRequest = request.doRequest(method , "/SnProvince/getAll",null,null,map);
+			System.out.println("Headers"+JacksonUtil.toJson(doRequest.getHeaders()));
 			System.out.println(doRequest.getBody());
 		} catch (Exception e) {
 			// TODO: handle exception

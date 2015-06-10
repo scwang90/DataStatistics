@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.datastatistics.annotations.Intent;
 import com.datastatistics.service.BaseService;
-import com.datastatistics.util.Page;
 
 /**
  * Controller 层通用处理事务基类
@@ -81,8 +80,8 @@ public class GeneralController<T> extends BaseController{
 	 * @throws Exception 
 	 */
 	@Intent("获取全部%s列表")
-	public Object getAll() throws Exception {
-		return new Page<T>(service.findAll()){};
+	public Object getList() throws Exception {
+		return service.findAll();
 	}
 
 	/**

@@ -1,35 +1,56 @@
 package com.datastatistics.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.datastatistics.annotations.Intent;
 import com.datastatistics.controller.base.GeneralController;
 import com.datastatistics.model.SnSameName;
+import com.datastatistics.model.SnSameNameError;
+import com.datastatistics.service.SnQueryCountService;
+import com.datastatistics.service.SnSameNameErrorService;
+import com.datastatistics.service.SnSameNameService;
 
 /**
  * 数据库表sn_same_name 的Controller层实现
  * @author 树朾
  * @date 2015-06-09 02:10:51 中国标准时间     
  */
-@Controller
+@RestController
 @Intent("数据库表sn_same_name")
 @RequestMapping("SnSameName")
 public class SnSameNameController extends GeneralController<SnSameName>{
 
+	@Autowired
+	SnSameNameService service;
+	
+	@Autowired
+	SnSameNameErrorService errorService;
+	
+	@Autowired
+	SnQueryCountService countService;
+	
 	/**
 	 * 添加信息
+	 * 首先调用查询统计 
+	 * 否则把新的数据添加到 SnSameNameErrorService 中
 	 * @param model
 	 * @return
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("add")
-	public Object add(SnSameName model) throws Exception {
+	@RequestMapping("Add")
+	public Object add(@RequestBody SnSameName model) throws Exception {
 		// TODO Auto-generated method stub
-		return super.add(model);
+		countService.countQuery(model);
+		int insert = service.insert(model);
+		if (insert == 0) {//没有 添加成功
+			errorService.insert(SnSameNameError.from(model));
+		}
+		return null;
 	}
 
 	/**
@@ -39,9 +60,8 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("update")
-	public Object update(SnSameName model) throws Exception {
+	@RequestMapping("Update")
+	public Object update(@RequestBody SnSameName model) throws Exception {
 		// TODO Auto-generated method stub
 		return super.update(model);
 	}
@@ -53,9 +73,8 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("getByID")
-	public Object getByID(String ID) throws Exception {
+	@RequestMapping("Get/{ID}")
+	public Object getByID(@PathVariable String ID) throws Exception {
 		// TODO Auto-generated method stub
 		return super.getByID(ID);
 	}
@@ -66,8 +85,7 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("delete")
+	@RequestMapping("Delete/{ID}")
 	public Object delete(String ID) throws Exception {
 		// TODO Auto-generated method stub
 		return super.delete(ID);
@@ -79,8 +97,7 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("countAll")
+	@RequestMapping("CountAll")
 	public Object countAll() throws Exception {
 		// TODO Auto-generated method stub
 		return super.countAll();
@@ -92,11 +109,10 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("getAll")
-	public Object getAll() throws Exception {
+	@RequestMapping("GetList")
+	public Object getList() throws Exception {
 		// TODO Auto-generated method stub
-		return super.getAll();
+		return super.getList();
 	}
 
 	/**
@@ -107,12 +123,10 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("getListByPage")
-	public Object getListByPage(int pageSize, int pageNo) throws Exception {
+	@RequestMapping("GetList/{pageSize}/{pageNo}")
+	public Object getListByPage(@PathVariable int pageSize,@PathVariable int pageNo) throws Exception {
 		// TODO Auto-generated method stub
 		return super.getListByPage(pageSize, pageNo);
 	}
-
 
 }

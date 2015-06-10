@@ -1,8 +1,9 @@
 package com.datastatistics.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.datastatistics.annotations.Intent;
 import com.datastatistics.controller.base.GeneralController;
@@ -13,10 +14,11 @@ import com.datastatistics.model.SnQueryCount;
  * @author 树朾
  * @date 2015-06-09 02:10:51 中国标准时间     
  */
-@Controller
+@RestController
 @Intent("数据库表sn_query_count")
 @RequestMapping("SnQueryCount")
 public class SnQueryCountController extends GeneralController<SnQueryCount>{
+
 
 	/**
 	 * 添加信息
@@ -25,9 +27,8 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("add")
-	public Object add(SnQueryCount model) throws Exception {
+	//@RequestMapping("Add")
+	public Object add(@RequestBody SnQueryCount model) throws Exception {
 		// TODO Auto-generated method stub
 		return super.add(model);
 	}
@@ -39,9 +40,8 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("update")
-	public Object update(SnQueryCount model) throws Exception {
+	//@RequestMapping("Update")
+	public Object update(@RequestBody SnQueryCount model) throws Exception {
 		// TODO Auto-generated method stub
 		return super.update(model);
 	}
@@ -53,9 +53,8 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("getByID")
-	public Object getByID(String ID) throws Exception {
+	@RequestMapping("Get/{ID}")
+	public Object getByID(@PathVariable String ID) throws Exception {
 		// TODO Auto-generated method stub
 		return super.getByID(ID);
 	}
@@ -66,8 +65,7 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("delete")
+	@RequestMapping("Delete/{ID}")
 	public Object delete(String ID) throws Exception {
 		// TODO Auto-generated method stub
 		return super.delete(ID);
@@ -79,8 +77,7 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("countAll")
+	@RequestMapping("CountAll")
 	public Object countAll() throws Exception {
 		// TODO Auto-generated method stub
 		return super.countAll();
@@ -92,11 +89,10 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("getAll")
-	public Object getAll() throws Exception {
+	@RequestMapping("GetList")
+	public Object getList() throws Exception {
 		// TODO Auto-generated method stub
-		return super.getAll();
+		return super.getList();
 	}
 
 	/**
@@ -107,12 +103,10 @@ public class SnQueryCountController extends GeneralController<SnQueryCount>{
 	 * @throws Exception 
 	 */
 	@Override
-	@ResponseBody
-	@RequestMapping("getListByPage")
-	public Object getListByPage(int pageSize, int pageNo) throws Exception {
+	@RequestMapping("GetList/{pageSize}/{pageNo}")
+	public Object getListByPage(@PathVariable int pageSize,@PathVariable int pageNo) throws Exception {
 		// TODO Auto-generated method stub
 		return super.getListByPage(pageSize, pageNo);
 	}
-
 
 }

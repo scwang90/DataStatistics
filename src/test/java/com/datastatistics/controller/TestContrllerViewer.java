@@ -53,10 +53,17 @@ public class TestContrllerViewer {
 	public void ResponseBody() throws HttpException {
 		try {
 			String path = "/ResponseBody/submit";
-			HttpMethod method = HttpMethod.POST;
+			HttpMethod method = HttpMethod.GET;
 			Map<String, Object> param = new HashMap<String, Object>();
 			Map<String, String> header = new HashMap<String, String>();
-			header.put("Accept-Encoding", "scwang");
+			header.put("Accept-Encoding", "gzip, deflate, lzma, sdch");
+			header.put("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+			header.put("Accept-Language", "zh-CN,zh;q=0.8");
+			header.put("Cache-Control", "max-age=0");
+			header.put("Connection", "keep-alive");
+			header.put("Accept-Encoding", "localhost:8080");
+			header.put("Host", "scwang");
+			header.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2398.0 Safari/537.36 OPR/31.0.1876.0 (Edition developer)");
 			Response response = request.doRequest(method,path,header,null,param);
 			for (Entry<String, String> entry : response.getHeaders().entrySet()) {
 				System.out.println("p-"+entry.getKey()+"="+entry.getValue());
