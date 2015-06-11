@@ -9,6 +9,7 @@
 <body>
 	<h4></h4>
 	<a href="hello?name=树朾" dataType="html">index 测试页面</a><br/>
+	<a href="SnSameName/Query/柯南" dataType="html">查询</a><br/>
 	<a href='SnSameName/Add' type="post" contentType="application/json" data='{"countProvince":0,"sameName":"上海-jsp-json"}'> 添加同名</a><br/>
 	<a href='SnSameName/Add?countProvince=0&sameName=上海-jsp-url' type="post" > 点击添加</a><br/>
 	<a href="SnProvince/CountAll" > 点击统计</a><br/>

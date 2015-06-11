@@ -7,7 +7,7 @@ import com.datastatistics.util.JacksonUtil;
 /**
  * 数据库表sn_same_name_error
  * @author 树朾
- * @date 2015-06-09 02:10:52 中国标准时间 
+ * @date 2015-06-11 13:20:59 中国标准时间 
  */
 @Table("sn_same_name_error")
 public class SnSameNameError{
@@ -27,9 +27,17 @@ public class SnSameNameError{
 	 */
 	private String countProvince;
 	/**
+	 * 错误统计次数
+	 */
+	private Integer count;
+	/**
 	 * 创建时间
 	 */
 	private java.util.Date createTime;
+	/**
+	 * 最后更新时间
+	 */
+	private java.util.Date updateTime;
 
 	public SnSameNameError() {
 		// TODO Auto-generated constructor stub
@@ -59,6 +67,14 @@ public class SnSameNameError{
 		this.countProvince = countProvince;
 	}
 		
+	public Integer getCount(){
+		return this.count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+		
 	public java.util.Date getCreateTime(){
 		return this.createTime;
 	}
@@ -66,11 +82,20 @@ public class SnSameNameError{
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
 	}
+		
+	public java.util.Date getUpdateTime(){
+		return this.updateTime;
+	}
+
+	public void setUpdateTime(java.util.Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
 	public static SnSameNameError from(SnSameName model) {
 		// TODO Auto-generated method stub
-		return JacksonUtil.toObject(JacksonUtil.toJson(model), SnSameNameError.class);
+		SnSameNameError error = JacksonUtil.toObject(JacksonUtil.toJson(model), SnSameNameError.class);
+		error.count = 1;
+		return error;
 	}
-		
 
 }

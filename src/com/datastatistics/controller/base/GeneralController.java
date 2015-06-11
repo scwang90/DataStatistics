@@ -4,17 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.datastatistics.annotations.Intent;
 import com.datastatistics.service.BaseService;
+
+import com.datastatistics.annotations.Intent;
+import com.datastatistics.service.BaseService;
 import com.datastatistics.util.Page;
 
 /**
  * Controller 层通用处理事务基类
  * @param <T>
  * @author 树朾
- * @date 2015-06-10 02:46:08 中国标准时间 
+ * @date 2015-06-11 13:42:12 中国标准时间 
  */
 public class GeneralController<T> extends BaseController{
 	
-
 	@Autowired
 	BaseService<T> service;
 
@@ -81,8 +83,8 @@ public class GeneralController<T> extends BaseController{
 	 * @throws Exception 
 	 */
 	@Intent("获取全部%s列表")
-	public Object getAll() throws Exception {
-		return new Page<T>(service.findAll()){};
+	public Object getList() throws Exception {
+		return service.findAll();
 	}
 
 	/**
@@ -96,5 +98,5 @@ public class GeneralController<T> extends BaseController{
 	public Object getListByPage(int pageSize,int pageNo) throws Exception {
 		return service.listByPage(pageSize, pageNo);
 	}
-
+	
 }

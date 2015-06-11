@@ -22,17 +22,26 @@ public class SnQueryCountServiceImpl extends BaseServiceImpl<SnQueryCount> imple
 
 	@Autowired
 	MultiDao<SnQueryCount> snQueryCountDaoImpl;
+	
+	@Autowired
+	MultiDao<SnSameName> snSameNameDaoImpl;
 
 	@Override
 	public void countQuery(SnSameName model) throws Exception {
 		// TODO Auto-generated method stub
-		List<SnQueryCount> list = snQueryCountDaoImpl.findByPropertyName("sameNameId", model.getKeyId());
-		for (SnQueryCount count : list) {
-			count.setCount(count.getCount()+1);
-			super.update(count);
-			return;
+		List<SnSameName> names = snSameNameDaoImpl.findByPropertyName("sameName", model.getSameName());
+		for (SnSameName name : names) {
+			List<SnQueryCount> list = snQueryCountDaoImpl.findByPropertyName("sameName", name.getSameName());
+			for (SnQueryCount count : list) {
+				count.setCount(count.getCount()+1);
+				super.update(count);
+				return;
+			}
+			SnQueryCount count = SnQueryCount.from(name);
+			count.setCount(1);
+			super.insert(count);
+			return ;
 		}
-		super.insert(SnQueryCount.from(model));
 	}
 	
 	@Override

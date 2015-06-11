@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  * 1.可以查看当前函数名称 
  * 2.可以判断当前函数是否已经递归调用
  * @author 树朾
- * @date 2015-06-10 02:46:08 中国标准时间 
+ * @date 2015-06-11 13:42:12 中国标准时间 
  */
 public class AfStackTrace {
 

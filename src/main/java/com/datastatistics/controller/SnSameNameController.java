@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.datastatistics.annotations.Intent;
 import com.datastatistics.controller.base.GeneralController;
 import com.datastatistics.model.SnSameName;
-import com.datastatistics.model.SnSameNameError;
 import com.datastatistics.service.SnQueryCountService;
 import com.datastatistics.service.SnSameNameErrorService;
 import com.datastatistics.service.SnSameNameService;
@@ -20,7 +19,7 @@ import com.datastatistics.service.SnSameNameService;
  * @date 2015-06-09 02:10:51 中国标准时间     
  */
 @RestController
-@Intent("数据库表sn_same_name")
+@Intent("同名")
 @RequestMapping("SnSameName")
 public class SnSameNameController extends GeneralController<SnSameName>{
 
@@ -33,38 +32,68 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	@Autowired
 	SnQueryCountService countService;
 	
+	
 	/**
-	 * 添加信息
-	 * 首先调用查询统计 
-	 * 否则把新的数据添加到 SnSameNameErrorService 中
+	 * 查询同名数据
 	 * @param model
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	@Override
-	@RequestMapping("Add")
-	public Object add(@RequestBody SnSameName model) throws Exception {
-		// TODO Auto-generated method stub
+	@Intent("查询%s")
+	@RequestMapping("Query/{name}")
+	public Object query(@PathVariable String name) throws Exception {
+		return service.query(name);
+	}
+	
+	/**
+	 * 发送同名数据到数据库
+	 * 并做排重检测，错误检测
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@Intent("发送%s")
+	@RequestMapping("Post")
+	public Object post(@RequestBody SnSameName model) throws Exception {
+		int insert = service.post(model);
 		countService.countQuery(model);
-		int insert = service.insert(model);
 		if (insert == 0) {//没有 添加成功
-			errorService.insert(SnSameNameError.from(model));
+			errorService.error(model);
 		}
 		return null;
 	}
+//	/**
+//	 * 添加信息
+//	 * 首先调用查询统计 
+//	 * 否则把新的数据添加到 SnSameNameErrorService 中
+//	 * @param model
+//	 * @return
+//	 * @throws Exception 
+//	 */
+//	@Override
+//	@RequestMapping("Add")
+//	public Object add(@RequestBody SnSameName model) throws Exception {
+//		// TODO Auto-generated method stub
+//		int insert = service.insert(model);
+//		countService.countQuery(model);
+//		if (insert == 0) {//没有 添加成功
+//			errorService.error(model);
+//		}
+//		return null;
+//	}
 
-	/**
-	 * 更新信息
-	 * @param model
-	 * @return
-	 * @throws Exception 
-	 */
-	@Override
-	@RequestMapping("Update")
-	public Object update(@RequestBody SnSameName model) throws Exception {
-		// TODO Auto-generated method stub
-		return super.update(model);
-	}
+//	/**
+//	 * 更新信息
+//	 * @param model
+//	 * @return
+//	 * @throws Exception 
+//	 */
+//	@Override
+//	@RequestMapping("Update")
+//	public Object update(@RequestBody SnSameName model) throws Exception {
+//		// TODO Auto-generated method stub
+//		return super.update(model);
+//	}
 
 	/**
 	 * 根据ID获取信息

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 /**
  * @Description: 字符串常用工具类
  * @author 树朾
- * @date 2015-06-10 02:46:08 中国标准时间 
+ * @date 2015-06-11 13:42:12 中国标准时间 
  */
 public class AfStringUtil {
 

@@ -1,14 +1,20 @@
 package com.datastatistics.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.datastatistics.dao.SnProvinceDao;
+import com.datastatistics.dao.SnSameNameDao;
 import com.datastatistics.dao.base.MultiDao;
+import com.datastatistics.model.SnProvince;
 import com.datastatistics.model.SnSameName;
+import com.datastatistics.model.entity.CountProvinceEntity;
+import com.datastatistics.model.entity.SameName;
 import com.datastatistics.service.SnSameNameService;
-import com.datastatistics.util.Page;
+import com.datastatistics.util.JacksonUtil;
 import com.datastatistics.util.ServiceException;
 
 /**
@@ -20,6 +26,12 @@ import com.datastatistics.util.ServiceException;
 public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implements SnSameNameService{
 
 	@Autowired
+	SnSameNameDao dao;
+
+	@Autowired
+	SnProvinceDao provinceDao;
+	
+	@Autowired
 	MultiDao<SnSameName> snSameNameDaoImpl;
 
 	/**
@@ -28,13 +40,53 @@ public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implement
 	 * 如果不存在 直接添加数据 
 	 */
 	@Override
-	public int insert(SnSameName model) throws Exception {
+	public int post(SnSameName model) throws Exception {
 		// TODO Auto-generated method stub
+		Class<CountProvinceEntity> clazz = CountProvinceEntity.class;
+		List<CountProvinceEntity> entities = JacksonUtil.toObjects(model.getCountProvince(), clazz);
+		for (int i = 0; i < entities.size(); i++) {
+			if (entities.get(i).getPoepleCount() <= 0) {
+				entities.remove(i--);
+			}
+		}
+		model.setCountProvince(JacksonUtil.toJson(entities));
 		List<SnSameName> list = snSameNameDaoImpl.findByPropertyName("sameName", model.getSameName());
 		for (SnSameName sameName : list) {
-			return sameName.getSameName().equals(model.getSameName())?1:0;
+			return sameName.getCountProvince().equals(model.getCountProvince())?1:0;
 		}
 		return super.insert(model);
+	}
+
+	@Override
+	public List<SameName> query(String name) throws Exception {
+		// TODO Auto-generated method stub
+		List<SameName> names = new ArrayList<SameName>();
+		List<SnProvince> provinces = provinceDao.findAll();
+		for (SnSameName snSameName : snSameNameDaoImpl.findByPropertyName("sameName", name)) {
+			Class<CountProvinceEntity> clazz = CountProvinceEntity.class;
+			List<CountProvinceEntity> objects = JacksonUtil.toObjects(snSameName.getCountProvince(), clazz);
+			for (SnProvince snProvince : provinces) {
+				for (CountProvinceEntity entity : objects) {
+					if (entity.getProvinceCode() == snProvince.getCode()
+							&& entity.getPoepleCount() > 0) {
+						SameName sameName = new SameName();
+						sameName.provinceCode = snProvince.getCode();
+						sameName.provinceName = snProvince.getName();
+						sameName.people =  entity.getPoepleCount();
+						names.add(sameName);
+					}
+				}	
+			}
+			break;
+		}
+		return names;
+	}
+
+	@Override
+	public int insert(SnSameName model) throws Exception {
+		// TODO Auto-generated method stub
+		throw new ServiceException("添加 方法被关闭");
+		//return super.insert(model);
 	}
 
 	@Override
@@ -44,52 +96,5 @@ public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implement
 		//return super.update(model);
 	}
 
-	@Override
-	public int delete(Object model) throws Exception {
-		// TODO Auto-generated method stub
-		return super.delete(model);
-	}
-
-	@Override
-	public SnSameName findById(Object id) throws Exception {
-		// TODO Auto-generated method stub
-		return super.findById(id);
-	}
-
-	@Override
-	public List<SnSameName> findAll() throws Exception {
-		// TODO Auto-generated method stub
-		return super.findAll();
-	}
-
-	@Override
-	public int delete(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return super.delete(id);
-	}
-
-	@Override
-	public List<SnSameName> findByPage(int limit, int start) throws Exception {
-		// TODO Auto-generated method stub
-		return super.findByPage(limit, start);
-	}
-
-	@Override
-	public SnSameName findById(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return super.findById(id);
-	}
-
-	@Override
-	public Page<SnSameName> listByPage(int pageSize, int pageNo) throws Exception {
-		// TODO Auto-generated method stub
-		return super.listByPage(pageSize, pageNo);
-	}
-
-	@Override
-	public int countAll() throws Exception {
-		// TODO Auto-generated method stub
-		return super.countAll();
-	}
 	
 }

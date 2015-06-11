@@ -2,7 +2,6 @@ package com.datastatistics.service.impl;
 
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,7 +33,6 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 	@Override
 	public int insert(T model) throws Exception{
 		// TODO Auto-generated method stub
-		checkNullID(model);
 		return baseDao.insert(model);
 	}
 	
@@ -103,20 +101,7 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 		// TODO Auto-generated method stub
 		return baseDao.countAll();
 	}
-	/**
-	 * 检查ID字段是否为空，否则设置一个新ID
-	 * @param model
-	 * @throws Exception
-	 */
-	protected void checkNullID(T model) throws Exception {
-		Class<?> clazz = model.getClass();
-		Field field = Interpreter.getIdField(clazz);
-		field.setAccessible(true);
-		Object id = field.get(model);
-		if(id == null || id.toString().trim().length() == 0){
-			field.set(model, UUID.randomUUID().toString());
-		}
-	}
+	
 	/**
 	 * 检测非空字段
 	 * @param old

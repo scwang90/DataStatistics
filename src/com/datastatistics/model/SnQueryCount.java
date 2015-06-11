@@ -6,7 +6,7 @@ import com.datastatistics.annotations.dbmodel.Table;
 /**
  * 数据库表sn_query_count
  * @author 树朾
- * @date 2015-06-10 02:46:08 中国标准时间 
+ * @date 2015-06-11 13:42:12 中国标准时间 
  */
 @Table("sn_query_count")
 public class SnQueryCount{
@@ -20,15 +20,19 @@ public class SnQueryCount{
 	/**
 	 * 姓名外键
 	 */
-	private String sameNameId;
+	private String sameName;
 	/**
-	 * 数据库列count
+	 * 查询次数统计
 	 */
 	private Integer count;
 	/**
 	 * 创建时间
 	 */
 	private java.util.Date createTime;
+	/**
+	 * 最后更新时间
+	 */
+	private java.util.Date updateTime;
 
 	public SnQueryCount() {
 		// TODO Auto-generated constructor stub
@@ -42,12 +46,12 @@ public class SnQueryCount{
 		this.keyId = keyId;
 	}
 		
-	public String getSameNameId(){
-		return this.sameNameId;
+	public String getSameName(){
+		return this.sameName;
 	}
 
-	public void setSameNameId(String sameNameId) {
-		this.sameNameId = sameNameId;
+	public void setSameName(String sameName) {
+		this.sameName = sameName;
 	}
 		
 	public Integer getCount(){
@@ -64,6 +68,14 @@ public class SnQueryCount{
 
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
+	}
+		
+	public java.util.Date getUpdateTime(){
+		return this.updateTime;
+	}
+
+	public void setUpdateTime(java.util.Date updateTime) {
+		this.updateTime = updateTime;
 	}
 		
 

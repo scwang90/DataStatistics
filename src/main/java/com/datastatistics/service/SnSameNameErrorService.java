@@ -1,5 +1,6 @@
 package com.datastatistics.service;
 
+import com.datastatistics.model.SnSameName;
 import com.datastatistics.model.SnSameNameError;
 
 /**
@@ -9,4 +10,12 @@ import com.datastatistics.model.SnSameNameError;
  */
 public interface SnSameNameErrorService extends BaseService<SnSameNameError>{
 
+	/**
+	 * 添加同名错误 错误信息
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	public void error(SnSameName model) throws Exception;
+	
 }

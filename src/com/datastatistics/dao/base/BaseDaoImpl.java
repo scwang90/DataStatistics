@@ -7,7 +7,7 @@ package com.datastatistics.dao.base;
  * 通用Dao实现基类
  * @param <T>
  * @author 树朾
- * @date 2015-06-10 02:46:08 中国标准时间 
+ * @date 2015-06-11 13:42:12 中国标准时间 
  */
 public class BaseDaoImpl<T> extends BaseDaoDbUtilMYSQLImpl<T> implements BaseDao<T>{
 
