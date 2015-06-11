@@ -1,5 +1,7 @@
 package com.datastatistics.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,8 +43,8 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	 */
 	@Intent("查询%s")
 	@RequestMapping("Query/{name}")
-	public Object query(@PathVariable String name) throws Exception {
-		return service.query(name);
+	public Object query(@PathVariable String name,HttpServletRequest request) throws Exception {
+		return service.query(new String(name.getBytes("ISO-8859-1"),"UTF-8"));
 	}
 	
 	/**

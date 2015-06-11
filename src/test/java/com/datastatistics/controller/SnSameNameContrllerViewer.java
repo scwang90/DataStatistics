@@ -46,7 +46,7 @@ public class SnSameNameContrllerViewer {
 	@Test
 	public void Query() throws HttpException, IOException {
 		HttpMethod method = HttpMethod.POST;
-		String name = "柯南";
+		String name = "李建国";//"柯南";
 		System.out.println(URLEncoder.encode(name,"UTF-8"));
 		//name = URLEncoder.encode(name,"UTF-8");
 		Response response = request.doRequest(method , "/SnSameName/Query/"+name ,null,null,null);
@@ -60,7 +60,7 @@ public class SnSameNameContrllerViewer {
 	public void Jsoup() throws HttpException, IOException {
 		try {
 			SnSameName name = new SnSameName();
-			name.setSameName("柯南");
+			name.setSameName("李建国");
 			List<CountProvinceEntity> entities = new ArrayList<>();
 			String url = URL + URLEncoder.encode(name.getSameName(), "UTF-8");
 			Connection con = Jsoup.connect(url);
@@ -83,7 +83,7 @@ public class SnSameNameContrllerViewer {
 			if (entities.size() > 0) {
 				name.setCountProvince(JacksonUtil.toJson(entities));
 				HttpMethod method = HttpMethod.POST;
-				Response response = request.doRequest(method , "/SnSameName/Add",null,name,null);
+				Response response = request.doRequest(method , "/SnSameName/Post",null,name,null);
 				for (Entry<String, String> entry : response.getHeaders().entrySet()) {
 					System.out.println("p-"+entry.getKey()+"="+entry.getValue());
 				}
