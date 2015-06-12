@@ -58,7 +58,7 @@ public class SnSameNameContrllerViewer {
 	@Test
 	public void Query() throws HttpException, IOException {
 		HttpMethod method = HttpMethod.POST;
-		String name = "柯南";
+		String name = "李建国";//"柯南";
 		System.out.println(URLEncoder.encode(name,"UTF-8"));
 		//name = URLEncoder.encode(name,"UTF-8");
 		Response response = request.doRequest(method , "/SnSameName/Query/"+name ,null,null,null);

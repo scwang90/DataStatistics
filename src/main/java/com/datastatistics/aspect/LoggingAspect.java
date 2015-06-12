@@ -19,7 +19,16 @@ public class LoggingAspect {
 		out.print(LoggingAspect.class.getSimpleName()+"-");
 		out.print(point.getTarget().getClass().getSimpleName()+".");
 		out.print(point.getSignature().getName()+"-begin-args-");
-		out.print(JacksonUtil.toJson(point.getArgs()));
+		try {
+			out.print(JacksonUtil.toJson(point.getArgs()));
+		} catch (Throwable e) {
+			// TODO: handle exception
+			out.print("[");
+			for (Object object : point.getArgs()) {
+				out.print(object.toString()+",");
+			}
+			out.print("\b]");
+		}
 		out.println();
 	}
 	

@@ -14,11 +14,11 @@ public class SameName{
 	/**
 	 * 省份名称
 	 */
-	public String provinceName;
+	public String name;
 	/**
 	 * 省份编码
 	 */
-	public short provinceCode;
+	public short code;
 
 	public SameName() {
 		// TODO Auto-generated constructor stub

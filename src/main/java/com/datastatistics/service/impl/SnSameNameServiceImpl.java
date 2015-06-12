@@ -72,8 +72,8 @@ public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implement
 					if (entity.getProvinceCode() == snProvince.getCode()
 							&& entity.getPoepleCount() > 0) {
 						SameName sameName = new SameName();
-						sameName.provinceCode = snProvince.getCode();
-						sameName.provinceName = snProvince.getName();
+						sameName.code = snProvince.getCode();
+						sameName.name = snProvince.getName();
 						sameName.people =  entity.getPoepleCount();
 						names.add(sameName);
 					}
