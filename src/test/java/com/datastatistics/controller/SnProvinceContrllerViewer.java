@@ -6,6 +6,10 @@ import java.util.Map;
 import org.apache.http.HttpException;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.datastatistics.model.SnSameName;
 import com.datastatistics.util.JacksonUtil;
@@ -15,6 +19,9 @@ import com.simple.toadiot.rtinfosdk.http.DefaultRequestHandler.HttpMethod;
 import com.simple.toadiot.rtinfosdk.http.DefaultResponseHandler;
 import com.simple.toadiot.rtinfosdk.http.Response;
 
+@WebAppConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:spring-*.xml")
 public class SnProvinceContrllerViewer {
 	
 	DefaultRequestHandler request = DefaultRequestHandler.getInstance();

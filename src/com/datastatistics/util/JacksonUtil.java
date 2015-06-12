@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
  * Jackson工具类
  * Helper class for parsing to and from json for API calls
  * @author 树朾
- * @date 2015-06-11 13:42:12 中国标准时间 
+ * @date 2015-06-12 17:21:15 中国标准时间 
  */
 public class JacksonUtil {
 	

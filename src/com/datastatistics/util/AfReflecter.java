@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * java 反射工具类
  * @author 树朾
- * @date 2015-06-11 13:42:12 中国标准时间 
+ * @date 2015-06-12 17:21:15 中国标准时间 
  */
 public class AfReflecter {
 
@@ -142,10 +142,10 @@ public class AfReflecter {
 				return type.getDeclaredField(field);
 			} catch (NoSuchFieldException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (SecurityException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			type = type.getSuperclass();
 		}

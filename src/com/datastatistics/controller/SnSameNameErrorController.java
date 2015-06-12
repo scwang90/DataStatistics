@@ -12,7 +12,7 @@ import com.datastatistics.model.SnSameNameError;
 /**
  * 数据库表sn_same_name_error 的Controller层实现
  * @author 树朾
- * @date 2015-06-11 13:42:12 中国标准时间     
+ * @date 2015-06-12 17:21:15 中国标准时间     
  */
 @RestController
 @Intent("数据库表sn_same_name_error")

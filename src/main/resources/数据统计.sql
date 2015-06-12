@@ -2,6 +2,7 @@ CREATE TABLE `sn_same_name` (
 `keyId` varchar(64) NOT NULL COMMENT '主键ID',
 `sameName` varchar(32) NOT NULL COMMENT '统计名称',
 `countProvince` varchar(255) NOT NULL COMMENT '各个省份的数量统计，逗号隔开的，int',
+`countCountry` int NOT NULL COMMENT '全国统计总数',
 `createTime` datetime NOT NULL COMMENT '创建时间',
 PRIMARY KEY (`keyId`) 
 )
@@ -30,6 +31,7 @@ CREATE TABLE `sn_same_name_error` (
 `keyId` varchar(64) NOT NULL COMMENT '主键ID',
 `sameName` varchar(32) NOT NULL COMMENT '统计名称',
 `countProvince` varchar(255) NOT NULL COMMENT '各个省份的数量统计，逗号隔开的，int',
+`countCountry` int NOT NULL COMMENT '全国统计总数',
 `count` int NOT NULL COMMENT '错误统计次数',
 `createTime` datetime NOT NULL COMMENT '创建时间',
 `updateTime` datetime NOT NULL COMMENT '最后更新时间',

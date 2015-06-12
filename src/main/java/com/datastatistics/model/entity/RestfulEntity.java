@@ -1,23 +1,19 @@
 package com.datastatistics.model.entity;
 
-import java.io.Serializable;
-
 /**
  * Restful返回实体类
  * @author 树朾
  * @date 2015-06-09 02:10:52 中国标准时间 
  */
-public class RestfulEntity implements Serializable {
+public class RestfulEntity {
 
-	private static final long serialVersionUID = 7003037513889860450L;
+	private boolean status;
 
-	private boolean result;
+	private Object result;
 
-	private Object data;
-
-	public RestfulEntity(Object data, boolean result) {
+	public RestfulEntity(Object result, boolean status) {
 		this.result = result;
-		this.data = data;
+		this.status = status;
 	}
 
 	/**
@@ -40,19 +36,21 @@ public class RestfulEntity implements Serializable {
 		return new RestfulEntity(mes, false);
 	}
 
-	public boolean isResult() {
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public Object getResult() {
 		return result;
 	}
 
-	public void setResult(boolean result) {
+	public void setResult(Object result) {
 		this.result = result;
 	}
 
-	public Object getData() {
-		return data;
-	}
-
-	public void setData(Object data) {
-		this.data = data;
-	}
+	
 }

@@ -54,10 +54,10 @@
 		});
 	});
 	function success(data) {
-		if(data.result){
-			$("h4").html($.toJSON(data.data));
-		}else if(data.data){
-			$("h4").html(data.data);
+		if(data.status){
+			$("h4").html($.toJSON(data.result));
+		}else if(data.result){
+			$("h4").html(data.result);
 		}else{
 			$("h4").html(data);
 		}

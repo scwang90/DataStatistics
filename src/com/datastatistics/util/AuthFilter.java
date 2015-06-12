@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 登陆验证过滤器
  * @author 树朾
- * @date 2015-06-11 13:42:12 中国标准时间 
+ * @date 2015-06-12 17:21:15 中国标准时间 
  */
 public class AuthFilter implements Filter {
 

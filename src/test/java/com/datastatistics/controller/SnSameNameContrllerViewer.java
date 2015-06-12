@@ -17,8 +17,14 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.datastatistics.controller.util.RegexpUtils;
+import com.datastatistics.dao.SnSameNameDao;
 import com.datastatistics.model.SnSameName;
 import com.datastatistics.model.entity.CountProvinceEntity;
 import com.datastatistics.util.JacksonUtil;
@@ -28,7 +34,13 @@ import com.simple.toadiot.rtinfosdk.http.DefaultRequestHandler.HttpMethod;
 import com.simple.toadiot.rtinfosdk.http.DefaultResponseHandler;
 import com.simple.toadiot.rtinfosdk.http.Response;
 
+@WebAppConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:spring-*.xml")
 public class SnSameNameContrllerViewer {
+	
+	@Autowired
+	SnSameNameDao sameNameDao;
 
 	public static String URL = "http://zhaoren.idtag.cn/samename/searchName!getProvinces.htm?name=";
 	
@@ -60,7 +72,7 @@ public class SnSameNameContrllerViewer {
 	public void Jsoup() throws HttpException, IOException {
 		try {
 			SnSameName name = new SnSameName();
-			name.setSameName("柯南");
+			name.setSameName("小美");
 			List<CountProvinceEntity> entities = new ArrayList<>();
 			String url = URL + URLEncoder.encode(name.getSameName(), "UTF-8");
 			Connection con = Jsoup.connect(url);
@@ -83,7 +95,7 @@ public class SnSameNameContrllerViewer {
 			if (entities.size() > 0) {
 				name.setCountProvince(JacksonUtil.toJson(entities));
 				HttpMethod method = HttpMethod.POST;
-				Response response = request.doRequest(method , "/SnSameName/Add",null,name,null);
+				Response response = request.doRequest(method , "/SnSameName/Post",null,name,null);
 				for (Entry<String, String> entry : response.getHeaders().entrySet()) {
 					System.out.println("p-"+entry.getKey()+"="+entry.getValue());
 				}
@@ -113,6 +125,20 @@ public class SnSameNameContrllerViewer {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void countCountry() throws Exception {
+		List<SnSameName> sameNames = sameNameDao.findAll();
+		for (SnSameName snSameName : sameNames) {
+			if (snSameName.getCountCountry() == 0) {
+				List<CountProvinceEntity> entities = snSameName.getCountProvinceEntitys();
+				for (CountProvinceEntity entity : entities) {
+					snSameName.setCountCountry(entity.getPoepleCount()+snSameName.getCountCountry());
+					sameNameDao.update(snSameName);
+				}
+			}
 		}
 	}
 	

@@ -11,7 +11,7 @@ import com.datastatistics.util.Page;
 /**
  * 数据库表sn_same_name_error的Service接实现
  * @author 树朾
- * @date 2015-06-11 13:42:12 中国标准时间     
+ * @date 2015-06-12 17:21:15 中国标准时间     
  */
 @Service
 public class SnSameNameErrorServiceImpl extends BaseServiceImpl<SnSameNameError> implements SnSameNameErrorService{
@@ -29,9 +29,9 @@ public class SnSameNameErrorServiceImpl extends BaseServiceImpl<SnSameNameError>
 	}
 
 	@Override
-	public int delete(Object model) throws Exception {
+	public int delete(Object id) throws Exception {
 		// TODO Auto-generated method stub
-		return super.delete(model);
+		return super.delete(id);
 	}
 
 	@Override

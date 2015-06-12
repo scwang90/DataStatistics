@@ -42,11 +42,13 @@ public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implement
 	@Override
 	public int post(SnSameName model) throws Exception {
 		// TODO Auto-generated method stub
-		Class<CountProvinceEntity> clazz = CountProvinceEntity.class;
-		List<CountProvinceEntity> entities = JacksonUtil.toObjects(model.getCountProvince(), clazz);
+		List<CountProvinceEntity> entities = model.getCountProvinceEntitys();
+		model.setCountCountry(0);
 		for (int i = 0; i < entities.size(); i++) {
 			if (entities.get(i).getPoepleCount() <= 0) {
 				entities.remove(i--);
+			}else {
+				model.setCountCountry(entities.get(i).getPoepleCount()+model.getCountCountry());
 			}
 		}
 		model.setCountProvince(JacksonUtil.toJson(entities));
