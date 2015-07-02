@@ -53,6 +53,9 @@ public class SnSameNameContrllerViewer {
 		DefaultResponseHandler.DEBUG = true;
 		DefaultResponseHandler.JSONFRAMEWORK = false;
 		AppConfig.setCharset("UTF-16");
+		AppConfig.setIP("222.85.149.6");
+		AppConfig.setPort("9080");
+		AppConfig.setVersion("DataStatistics");
 	}
 	
 
