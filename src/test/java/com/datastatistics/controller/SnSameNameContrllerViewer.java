@@ -48,10 +48,14 @@ public class SnSameNameContrllerViewer {
 
 	@Before
 	public void init() {
+		//http://222.85.149.6:9080/DataStatistics/
 		DefaultRequestHandler.DEBUG = true;
 		DefaultResponseHandler.DEBUG = true;
 		DefaultResponseHandler.JSONFRAMEWORK = false;
 		AppConfig.setCharset("UTF-16");
+		AppConfig.setIP("222.85.149.6");
+		AppConfig.setPort("9080");
+		AppConfig.setVersion("DataStatistics");
 	}
 	
 
@@ -72,7 +76,7 @@ public class SnSameNameContrllerViewer {
 	public void Jsoup() throws HttpException, IOException {
 		try {
 			SnSameName name = new SnSameName();
-			name.setSameName("小美");
+			name.setSameName("小樱");
 			List<CountProvinceEntity> entities = new ArrayList<>();
 			String url = URL + URLEncoder.encode(name.getSameName(), "UTF-8");
 			Connection con = Jsoup.connect(url);
