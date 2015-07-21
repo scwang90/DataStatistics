@@ -44,7 +44,10 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	@Intent("查询%s")
 	@RequestMapping("Query/{name}")
 	public Object query(@PathVariable String name,HttpServletRequest request) throws Exception {
-		return service.query(new String(name.getBytes("ISO-8859-1"),"UTF-8"));
+		if(!name.matches("[\\u4E00-\\u9FA5]+")){
+			name = new String(name.getBytes("ISO-8859-1"),"UTF-8");
+		}
+		return service.query(name);
 	}
 	
 	/**
