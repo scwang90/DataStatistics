@@ -9,6 +9,7 @@ import com.datastatistics.annotations.dbmodel.interpreter.Interpreter;
 import com.datastatistics.dao.base.BaseDao;
 import com.datastatistics.service.BaseService;
 import com.datastatistics.util.AfReflecter;
+import com.datastatistics.util.JacksonUtil;
 import com.datastatistics.util.Page;
 import com.datastatistics.util.ServiceException;
 
@@ -107,10 +108,12 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 	 * @param old
 	 * @param model
 	 */
+	@SuppressWarnings("unchecked")
 	protected T checkNullField(T old, T model) {
 		// TODO Auto-generated method stub
 		try {
 			Class<?> clazz = model.getClass();
+			old = (T) JacksonUtil.toObject(JacksonUtil.toJson(old), clazz);
 			for (Field field : clazz.getDeclaredFields()) {
 				field.setAccessible(true);
 				Object nfield = field.get(model);
