@@ -1,7 +1,5 @@
 package com.datastatistics.dao;
 
-import java.util.List;
-
 import com.datastatistics.dao.base.BaseDao;
 import com.datastatistics.model.DsDevice;
 
@@ -13,53 +11,11 @@ import com.datastatistics.model.DsDevice;
 public interface DsDeviceDao extends BaseDao<DsDevice>{
 
 	/**
-	 * 插入一条新数据
-	 * @param model
-	 * @return
-	 * @throws Exception
-	 */
-	public int insert(DsDevice model) throws Exception;
-	/**
-	 * 根据ID删除
+	 * 根据UniqueID获取
 	 * @param id
 	 * @return
 	 * @throws Exception
 	 */
-	public int delete(Object id) throws Exception;
-	/**
-	 * 更新一条数据
-	 * @param model
-	 * @return
-	 * @throws Exception
-	 */
-	public int update(DsDevice model) throws Exception;
-	/**
-	 * 统计全部出数据
-	 * @return
-	 * @throws Exception
-	 */
-	public int countAll() throws Exception;
-	/**
-	 * 根据ID获取
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	public DsDevice findById(Object id) throws Exception;
-	/**
-	 * 获取全部数据
-	 * @return
-	 * @throws Exception
-	 */
-	public List<DsDevice> findAll() throws Exception;
-	/**
-	 * 分页查询数据
-	 * @param limit
-	 * @param start
-	 * @return
-	 * @throws Exception
-	 */
-	public List<DsDevice> findByPage(int limit,int start) throws Exception;
-	
+	public DsDevice findByUniqueId(String uniqueId) throws Exception;
 
 }

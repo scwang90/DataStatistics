@@ -1,16 +1,17 @@
 package com.datastatistics.service.impl;
 
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.datastatistics.util.Page;
-import com.datastatistics.util.ServiceException;
 import com.datastatistics.dao.DsDeviceDao;
+import com.datastatistics.dao.DsDeviceInitiateDao;
+import com.datastatistics.model.DsApplication;
 import com.datastatistics.model.DsDevice;
+import com.datastatistics.model.DsDeviceInitiate;
+import com.datastatistics.model.constant.DeviceInitiateType;
 import com.datastatistics.service.DsDeviceService;
+import com.datastatistics.util.ServiceException;
 
 /**
  * 数据库表ds_device的Service接实现
@@ -22,77 +23,41 @@ public class DsDeviceServiceImpl extends BaseServiceImpl<DsDevice> implements Ds
 
 	@Autowired
 	DsDeviceDao dao;
+
+	@Autowired
+	DsDeviceInitiateDao deviceInitiateDao;
 	
 	@Override
-	public int insert(DsDevice model) throws Exception{
+	public void initDevice(DsDevice model, DsApplication application,String channel)
+			throws Exception {
 		// TODO Auto-generated method stub
-//		checkNullID(model);
-		return dao.insert(model);
-	}
-	
-	@Override
-	public int update(DsDevice model) throws Exception {
-		// TODO Auto-generated method stub
-		DsDevice old = findById(getModelID(model));
-		if (old == null) {
-			throw new ServiceException("请求更新记录不存在或已经被删除！");
+		DsDevice device = dao.findByUniqueId(model.getUniqueId());
+		DsDeviceInitiate initiate = DsDeviceInitiate.from(model);
+		initiate.setType(DeviceInitiateType.start.toString());
+		initiate.setIsNew(device == null);
+		initiate.setChannel(channel);
+		if (device == null) {
+			dao.insert(model);
+		}else {
+			dao.update(model);
 		}
-		model = checkNullField(old, model);
-		return dao.update(model);
+		deviceInitiateDao.insert(initiate);
 	}
 
 	@Override
-	public int delete(Object id) throws Exception {
+	public void uninstall(DsDevice model, DsApplication application,String channel)
+			throws Exception {
 		// TODO Auto-generated method stub
-		return dao.delete(id);
-	}
-
-	@Override
-	public DsDevice findById(Object id) throws Exception{
-		// TODO Auto-generated method stub
-		return dao.findById(id);
-	}
-
-	@Override
-	public List<DsDevice> findAll() throws Exception{
-		// TODO Auto-generated method stub
-		return dao.findAll();
-	}
-
-	@Override
-	public int delete(String id) throws Exception{
-		// TODO Auto-generated method stub
-		return dao.delete(id);
-	}
-
-	@Override
-	public List<DsDevice> findByPage(int limit, int start) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.findByPage(limit,start);
-	}
-
-	@Override
-	public DsDevice findById(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.findById(id);
-	}
-	
-	@Override
-	public Page<DsDevice> listByPage(int pageSize, int pageNo) throws Exception{
-		// TODO Auto-generated method stub
-		int limit = pageSize; 
-		int start = pageNo*pageSize;
-		int totalRecord = dao.countAll();
-		int totalPage = 1+totalRecord/pageSize;
-		
-		List<DsDevice> list = dao.findByPage(limit, start);
-		
-		return new Page<DsDevice>(pageNo,pageSize,totalPage,totalRecord,list){};
-	}
-
-	@Override
-	public int countAll() throws Exception {
-		// TODO Auto-generated method stub
-		return dao.countAll();
+		DsDevice device = dao.findByUniqueId(model.getUniqueId());
+		if (device == null) {
+			throw new ServiceException("无效设备ID");
+		}else {
+			dao.update(model);
+		}
+		DsDeviceInitiate initiate = DsDeviceInitiate.from(model);
+		initiate.setType(DeviceInitiateType.close.toString());
+		initiate.setIsNew(false);
+		initiate.setChannel(channel);
+		deviceInitiateDao.insert(initiate);
 	}
 }

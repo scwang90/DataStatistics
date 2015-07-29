@@ -1,7 +1,6 @@
 package com.datastatistics.service;
 
-import java.util.List;
-
+import com.datastatistics.model.DsApplication;
 import com.datastatistics.model.DsExceptional;
 
 /**
@@ -12,52 +11,10 @@ import com.datastatistics.model.DsExceptional;
 public interface DsExceptionalService extends BaseService<DsExceptional>{
 
 	/**
-	 * 插入一条新数据
+	 * 应用异常统计
 	 * @param model
 	 * @return
-	 * @throws Exception
 	 */
-	public int insert(DsExceptional model) throws Exception;
-	/**
-	 * 根据ID删除
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	public int delete(Object id) throws Exception;
-	/**
-	 * 更新一条数据
-	 * @param model
-	 * @return
-	 * @throws Exception
-	 */
-	public int update(DsExceptional model) throws Exception;
-	/**
-	 * 统计全部出数据
-	 * @return
-	 * @throws Exception
-	 */
-	public int countAll() throws Exception;
-	/**
-	 * 根据ID获取
-	 * @param id
-	 * @return
-	 * @throws Exception
-	 */
-	public DsExceptional findById(Object id) throws Exception;
-	/**
-	 * 获取全部数据
-	 * @return
-	 * @throws Exception
-	 */
-	public List<DsExceptional> findAll() throws Exception;
-	/**
-	 * 分页查询数据
-	 * @param limit
-	 * @param start
-	 * @return
-	 * @throws Exception
-	 */
-	public List<DsExceptional> findByPage(int limit,int start) throws Exception;
+	public void exceptional(DsExceptional model,DsApplication application) throws Exception;
 	
 }
