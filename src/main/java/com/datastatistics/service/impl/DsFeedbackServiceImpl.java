@@ -24,7 +24,10 @@ public class DsFeedbackServiceImpl extends BaseServiceImpl<DsFeedback> implement
 	public void feedback(DsFeedback model, DsApplication application)
 			throws Exception {
 		// TODO Auto-generated method stub
-		dao.insert(model);
+		DsFeedback byId = dao.findById(model.getKeyId());
+		if (byId == null) {
+			dao.insert(model);
+		}
 	}
 	
 }

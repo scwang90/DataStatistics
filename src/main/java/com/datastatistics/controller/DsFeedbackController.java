@@ -2,6 +2,7 @@ package com.datastatistics.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +32,7 @@ public class DsFeedbackController extends StatisticsController<DsFeedback>{
 	 * @throws Exception 
 	 */
 	@RequestMapping("Feedback")
-	public Object feedback(@RequestBody DsFeedback model) throws Exception {
+	public Object feedback(@RequestHeader("token") String token,@RequestBody DsFeedback model) throws Exception {
 		// TODO Auto-generated method stub
 		DsApplication application = super.verifyAppKey(model.getAppId());
 		service.feedback(model,application);

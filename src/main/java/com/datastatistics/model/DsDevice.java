@@ -6,7 +6,7 @@ import com.datastatistics.annotations.dbmodel.Table;
 /**
  * 数据库表ds_device
  * @author 树朾
- * @date 2015-07-28 23:44:10 中国标准时间
+ * @date 2015-08-01 21:07:32 中国标准时间
  */
 @Table("ds_device")
 public class DsDevice{
@@ -37,6 +37,26 @@ public class DsDevice{
 	 * 用户相关ID
 	 */
 	private String userId;
+	/**
+	 * IP地址
+	 */
+	private String ipAddress;
+	/**
+	 * 设备型号
+	 */
+	private String device;
+	/**
+	 * 设备类型
+	 */
+	private String type;
+	/**
+	 * 省会
+	 */
+	private String province;
+	/**
+	 * 城市
+	 */
+	private String city;
 	/**
 	 * 创建时间
 	 */
@@ -98,6 +118,46 @@ public class DsDevice{
 		this.userId = userId;
 	}
 		
+	public String getIpAddress(){
+		return this.ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+		
+	public String getDevice(){
+		return this.device;
+	}
+
+	public void setDevice(String device) {
+		this.device = device;
+	}
+		
+	public String getType(){
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+		
+	public String getProvince(){
+		return this.province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+		
+	public String getCity(){
+		return this.city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+		
 	public java.util.Date getCreateTime(){
 		return this.createTime;
 	}
@@ -114,5 +174,4 @@ public class DsDevice{
 		this.updateTime = updateTime;
 	}
 		
-
 }

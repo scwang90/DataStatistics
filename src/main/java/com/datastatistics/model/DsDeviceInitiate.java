@@ -6,7 +6,7 @@ import com.datastatistics.annotations.dbmodel.Table;
 /**
  * 数据库表ds_device_initiate
  * @author 树朾
- * @date 2015-07-29 22:55:48 中国标准时间
+ * @date 2015-08-01 21:07:32 中国标准时间
  */
 @Table("ds_device_initiate")
 public class DsDeviceInitiate{
@@ -18,9 +18,13 @@ public class DsDeviceInitiate{
 	 */
 	private String keyId;
 	/**
-	 * 启动类型（start，close）
+	 * 启动类型（0.无效 1.start，2.close）
 	 */
-	private String type;
+	private Integer type;
+	/**
+	 * 统计类型（0.无效 1.天数统计 2.小时统计 3.月份统计）
+	 */
+	private Integer statisticsType;
 	/**
 	 * 设备唯一ID
 	 */
@@ -62,12 +66,20 @@ public class DsDeviceInitiate{
 		this.keyId = keyId;
 	}
 		
-	public String getType(){
+	public Integer getType(){
 		return this.type;
 	}
 
-	public void setType(String type) {
+	public void setType(Integer type) {
 		this.type = type;
+	}
+		
+	public Integer getStatisticsType(){
+		return this.statisticsType;
+	}
+
+	public void setStatisticsType(Integer statisticsType) {
+		this.statisticsType = statisticsType;
 	}
 		
 	public String getUniqueId(){
@@ -85,19 +97,19 @@ public class DsDeviceInitiate{
 	public void setAppId(String appId) {
 		this.appId = appId;
 	}
-	
-	public String getChannel() {
-		return channel;
+		
+	public String getChannel(){
+		return this.channel;
 	}
-	
+
 	public void setChannel(String channel) {
 		this.channel = channel;
 	}
-	
-	public Boolean getIsNew() {
-		return isNew;
+		
+	public Boolean getIsNew(){
+		return this.isNew;
 	}
-	
+
 	public void setIsNew(Boolean isNew) {
 		this.isNew = isNew;
 	}

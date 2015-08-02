@@ -28,9 +28,9 @@ import com.simple.toadiot.rtinfosdk.util.exception.ParseToObjectException;
  */
 public class DefaultResponseHandler implements ResponseHandler<Response> {
 	
-	public static final String STATUS = "successful";
-	public static final String STATUS_OK = "ok";
-	public static final String RESULT = "message";
+	public static final String STATUS = "status";
+	public static final Object STATUS_OK = true;
+	public static final String RESULT = "result";
 	public static final int SUCCESSCODE = 200;
 	
 	public static boolean JSONFRAMEWORK = true;

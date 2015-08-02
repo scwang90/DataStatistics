@@ -60,6 +60,21 @@ public interface DsDeviceInitiateDao extends BaseDao<DsDeviceInitiate>{
 	 * @throws Exception
 	 */
 	public List<DsDeviceInitiate> findByPage(int limit,int start) throws Exception;
+	/**
+	 * 统计今天 uniqueId 启动的次数
+	 * @param uniqueId
+	 */
+	public int countUniqueIdByDay(String uniqueId) throws Exception;
+	/**
+	 * 统计当时 uniqueId 启动的次数
+	 * @param uniqueId
+	 */
+	public int countUniqueIdByHour(String uniqueId) throws Exception;
+	/**
+	 * 统计当月 uniqueId 启动的次数
+	 * @param uniqueId
+	 */
+	public int countUniqueIdByMonth(String uniqueId) throws Exception;
 	
 
 }

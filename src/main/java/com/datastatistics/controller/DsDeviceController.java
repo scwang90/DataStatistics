@@ -3,6 +3,7 @@ package com.datastatistics.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +32,7 @@ public class DsDeviceController extends StatisticsController<DsDevice>{
 	 * @param channel
 	 */
 	@RequestMapping("InitDevice/{channel}")
-	public Object initDevice(@RequestBody DsDevice model,@PathVariable String channel) throws Exception {
+	public Object initDevice(@RequestHeader("token") String token,@RequestBody DsDevice model,@PathVariable String channel) throws Exception {
 		// TODO Auto-generated method stub
 		DsApplication application = super.verifyAppKey(model.getAppId());
 		service.initDevice(model,application,channel);
@@ -44,7 +45,7 @@ public class DsDeviceController extends StatisticsController<DsDevice>{
 	 * @param channel
 	 */
 	@RequestMapping("Uninstall/{channel}")
-	public Object uninstall(@RequestBody DsDevice model,@PathVariable String channel) throws Exception {
+	public Object uninstall(@RequestHeader("token") String token,@RequestBody DsDevice model,@PathVariable String channel) throws Exception {
 		// TODO Auto-generated method stub
 		DsApplication application = super.verifyAppKey(model.getAppId());
 		service.uninstall(model,application,channel);

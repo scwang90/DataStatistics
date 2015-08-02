@@ -33,6 +33,9 @@ public class DsEventServiceImpl extends BaseServiceImpl<DsEvent> implements DsEv
 		if (device == null) {
 			throw new ServiceException("无效设备ID");
 		}
-		dao.insert(model);
+		DsEvent byId = dao.findById(model.getKeyId());
+		if (byId == null) {
+			dao.insert(model);
+		}
 	}
 }

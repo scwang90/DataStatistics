@@ -42,6 +42,10 @@ public class DsExceptional{
 	 */
 	private String user;
 	/**
+	 * 渠道
+	 */
+	private String channel;
+	/**
 	 * 设备信息
 	 */
 	private String device;
@@ -128,6 +132,14 @@ public class DsExceptional{
 
 	public void setUser(String user) {
 		this.user = user;
+	}
+	
+	public String getChannel() {
+		return channel;
+	}
+	
+	public void setChannel(String channel) {
+		this.channel = channel;
 	}
 		
 	public String getDevice(){

@@ -2,6 +2,7 @@ package com.datastatistics.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +30,7 @@ public class DsEventController extends StatisticsController<DsEvent>{
 	 * @param model
 	 */
 	@RequestMapping("TriggerEvent")
-	public Object triggerEvent(@RequestBody DsEvent model) throws Exception {
+	public Object triggerEvent(@RequestHeader("token") String token,@RequestBody DsEvent model) throws Exception {
 		// TODO Auto-generated method stub
 		DsApplication application = super.verifyAppKey(model.getAppId());
 		service.triggerEvent(model,application);

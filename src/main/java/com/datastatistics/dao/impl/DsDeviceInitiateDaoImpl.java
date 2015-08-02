@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.datastatistics.dao.base.BaseDaoImpl;
 import com.datastatistics.dao.DsDeviceInitiateDao;
+import com.datastatistics.dao.base.BaseDaoImpl;
 import com.datastatistics.model.DsDeviceInitiate;
+import com.datastatistics.model.constant.DeviceStatisticsType;
 
 /**
  * 数据库表ds_device_initiate的Dao实现
@@ -57,5 +58,33 @@ public class DsDeviceInitiateDaoImpl extends BaseDaoImpl<DsDeviceInitiate> imple
 		// TODO Auto-generated method stub
 		return super.findByPage(limit, start);
 	}
+
+	@Override
+	public int countUniqueIdByDay(String uniqueId) throws Exception {
+		// TODO Auto-generated method stub
+		int statisticsType = DeviceStatisticsType.day.ordinal();
+		String where = "where uniqueId = '%s' and statisticsType = %d and (DATE_FORMAT(createTime,'%y-%m-%d')=DATE_FORMAT(NOW(),'%y-%m-%d'))";
+		where = String.format(where,uniqueId,statisticsType);
+		return super.countWhere(where);
+	}
+
+	@Override
+	public int countUniqueIdByHour(String uniqueId) throws Exception {
+		// TODO Auto-generated method stub
+		int statisticsType = DeviceStatisticsType.hour.ordinal();
+		String where = "where uniqueId = '%s' and statisticsType = %d and (DATE_FORMAT(createTime,'%y-%m-%d-%H')=DATE_FORMAT(NOW(),'%y-%m-%d-%H'))";
+		where = String.format(where,uniqueId,statisticsType);
+		return super.countWhere(where);
+	}
+
+	@Override
+	public int countUniqueIdByMonth(String uniqueId) throws Exception {
+		// TODO Auto-generated method stub
+		int statisticsType = DeviceStatisticsType.month.ordinal();
+		String where = "where uniqueId = '%s' and statisticsType = %d and (DATE_FORMAT(createTime,'%y-%m')=DATE_FORMAT(NOW(),'%y-%m'))";
+		where = String.format(where,uniqueId,statisticsType);
+		return super.countWhere(where);
+	}
+	
 }
 

@@ -42,6 +42,10 @@ public class DsFeedback{
 	 */
 	private String contact;
 	/**
+	 * 渠道
+	 */
+	private String channel;
+	/**
 	 * 创建时间
 	 */
 	private java.util.Date createTime;
@@ -116,6 +120,14 @@ public class DsFeedback{
 		
 	public String getContact(){
 		return this.contact;
+	}
+	
+	public String getChannel() {
+		return channel;
+	}
+	
+	public void setChannel(String channel) {
+		this.channel = channel;
 	}
 
 	public void setContact(String contact) {

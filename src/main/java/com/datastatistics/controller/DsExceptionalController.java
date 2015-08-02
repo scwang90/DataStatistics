@@ -2,6 +2,7 @@ package com.datastatistics.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,7 +31,7 @@ public class DsExceptionalController extends StatisticsController<DsExceptional>
 	 * @return
 	 */
 	@RequestMapping("Exceptional")
-	public Object exceptional(@RequestBody DsExceptional model) throws Exception {
+	public Object exceptional(@RequestHeader("token") String token,@RequestBody DsExceptional model) throws Exception {
 		// TODO Auto-generated method stub
 		DsApplication application = super.verifyAppKey(model.getAppId());
 		service.exceptional(model,application);

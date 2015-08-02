@@ -34,6 +34,10 @@ public class DsEvent{
 	 */
 	private String parameter;
 	/**
+	 * 渠道
+	 */
+	private String channel;
+	/**
 	 * 备注
 	 */
 	private String remark;
@@ -92,6 +96,14 @@ public class DsEvent{
 
 	public void setParameter(String parameter) {
 		this.parameter = parameter;
+	}
+	
+	public String getChannel() {
+		return channel;
+	}
+	
+	public void setChannel(String channel) {
+		this.channel = channel;
 	}
 		
 	public String getRemark(){

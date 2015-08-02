@@ -47,5 +47,11 @@ public class DsDeviceDaoTester {
 		System.out.println(JacksonUtil.toJson(result));
 	}
 	
+	@Test
+	public void findById() throws Exception {
+		Object result = dao.findById(null);
+		System.out.println(JacksonUtil.toJson(result));
+	}
+	
 	
 }

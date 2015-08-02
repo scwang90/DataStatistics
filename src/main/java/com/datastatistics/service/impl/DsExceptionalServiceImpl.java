@@ -23,7 +23,10 @@ public class DsExceptionalServiceImpl extends BaseServiceImpl<DsExceptional> imp
 	@Override
 	public void exceptional(DsExceptional model,DsApplication application) throws Exception {
 		// TODO Auto-generated method stub
-		dao.insert(model);
+		DsExceptional byId = dao.findById(model.getKeyId());
+		if (byId == null) {
+			dao.insert(model);
+		}
 	}
 	
 }
