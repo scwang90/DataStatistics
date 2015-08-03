@@ -56,6 +56,7 @@ public class DsDeviceInitiate{
 
 	public DsDeviceInitiate() {
 		// TODO Auto-generated constructor stub
+		this.count = 1;
 	}
 	
 	public String getKeyId(){

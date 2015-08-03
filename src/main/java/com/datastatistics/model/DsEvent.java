@@ -34,6 +34,10 @@ public class DsEvent{
 	 */
 	private String parameter;
 	/**
+	 * 次数统计
+	 */
+	private Integer count;
+	/**
 	 * 渠道
 	 */
 	private String channel;
@@ -56,6 +60,7 @@ public class DsEvent{
 
 	public DsEvent() {
 		// TODO Auto-generated constructor stub
+		this.count = 1;
 	}
 	
 	public String getKeyId(){
@@ -96,6 +101,14 @@ public class DsEvent{
 
 	public void setParameter(String parameter) {
 		this.parameter = parameter;
+	}
+	
+	public Integer getCount() {
+		return count;
+	}
+	
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 	
 	public String getChannel() {

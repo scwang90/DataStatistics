@@ -8,8 +8,10 @@ import org.junit.Test;
 
 import com.datastatistics.controller.util.AfDateGuid;
 import com.datastatistics.model.DsDevice;
+import com.datastatistics.model.DsDeviceInitiate;
 import com.datastatistics.util.AfDesHelper;
 import com.datastatistics.util.AfMD5;
+import com.datastatistics.util.AfStringUtil;
 import com.simple.toadiot.rtinfosdk.http.DefaultRequestHandler;
 import com.simple.toadiot.rtinfosdk.http.DefaultRequestHandler.HttpMethod;
 import com.simple.toadiot.rtinfosdk.http.DefaultResponseHandler;
@@ -64,4 +66,23 @@ public class DsDeviceControllerTester{
 		return header;
 	}
 
+	@Test
+	public void init() {
+		// TODO Auto-generated method stub
+		DsDeviceInitiate initiate = new DsDeviceInitiate();
+		if (initiate.getCount() != null) {
+			initiate.setCount(1+initiate.getCount());
+		} else {
+			initiate.setCount(2);
+		}
+		System.out.println(initiate.getCount());
+	}
+
+	@Test
+	public void test() {
+		System.out.println(AfStringUtil.equals(null, null));
+		System.out.println(AfStringUtil.equals(null, ""));
+		System.out.println(AfStringUtil.equals("", null));
+		System.out.println(AfStringUtil.equals("", ""));
+	}
 }

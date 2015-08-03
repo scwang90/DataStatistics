@@ -75,6 +75,18 @@ public interface DsDeviceInitiateDao extends BaseDao<DsDeviceInitiate>{
 	 * @param uniqueId
 	 */
 	public int countUniqueIdByMonth(String uniqueId) throws Exception;
+	/**
+	 * 获取当时 uniqueId 启动 的记录
+	 * @param uniqueId
+	 * @return
+	 */
+	public DsDeviceInitiate findStartByUniqueIdHour(String uniqueId) throws Exception;
+	/**
+	 * 获取当时 uniqueId 关闭 的记录
+	 * @param uniqueId
+	 * @return
+	 */
+	public DsDeviceInitiate findCloseByUniqueIdHour(String uniqueId) throws Exception;
 	
 
 }

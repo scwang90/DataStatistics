@@ -25,7 +25,17 @@ public class DsExceptionalServiceImpl extends BaseServiceImpl<DsExceptional> imp
 		// TODO Auto-generated method stub
 		DsExceptional byId = dao.findById(model.getKeyId());
 		if (byId == null) {
-			dao.insert(model);
+			byId = dao.findBySimple(model);
+			if (byId != null) {
+				if (byId.getCount() != null) {
+					byId.setCount(1+byId.getCount());
+				} else {
+					byId.setCount(2);
+				}
+				dao.update(byId);
+			} else {
+				dao.insert(model);
+			}
 		}
 	}
 	

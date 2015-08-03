@@ -60,6 +60,11 @@ public interface DsExceptionalDao extends BaseDao<DsExceptional>{
 	 * @throws Exception
 	 */
 	public List<DsExceptional> findByPage(int limit,int start) throws Exception;
-	
+	/**
+	 * 获相似的异常
+	 * @param model
+	 * @return
+	 */
+	public DsExceptional findBySimple(DsExceptional model) throws Exception;
 
 }

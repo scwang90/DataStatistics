@@ -10,6 +10,7 @@ import com.datastatistics.model.DsApplication;
 import com.datastatistics.model.DsDevice;
 import com.datastatistics.model.DsEvent;
 import com.datastatistics.service.DsEventService;
+import com.datastatistics.util.AfStringUtil;
 import com.datastatistics.util.ServiceException;
 
 /**
@@ -35,6 +36,19 @@ public class DsEventServiceImpl extends BaseServiceImpl<DsEvent> implements DsEv
 		}
 		DsEvent byId = dao.findById(model.getKeyId());
 		if (byId == null) {
+			for (DsEvent event : dao.findByUniqueIdHour(model.getUniqueId())) {
+				if (AfStringUtil.equals(model.getEventId(), event.getEventId())
+						&& AfStringUtil.equals(model.getParameter(), event.getParameter())
+						&& AfStringUtil.equals(model.getRemark(), event.getRemark())) {
+					if (event.getCount() != null) {
+						event.setCount(1+event.getCount());
+					} else {
+						event.setCount(2);
+					}
+					dao.update(event);
+					return;
+				}
+			}
 			dao.insert(model);
 		}
 	}

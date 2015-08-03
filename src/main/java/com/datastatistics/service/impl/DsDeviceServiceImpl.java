@@ -10,7 +10,6 @@ import com.datastatistics.model.DsApplication;
 import com.datastatistics.model.DsDevice;
 import com.datastatistics.model.DsDeviceInitiate;
 import com.datastatistics.model.constant.DeviceInitiateType;
-import com.datastatistics.model.constant.DeviceStatisticsType;
 import com.datastatistics.service.DsDeviceService;
 import com.datastatistics.util.ServiceException;
 
@@ -43,10 +42,20 @@ public class DsDeviceServiceImpl extends BaseServiceImpl<DsDevice> implements Ds
 			dao.update(model);
 		}
 		initiate.setKeyId(model.getKeyId());
-		initiate.setStatisticsType(DeviceStatisticsType.none.ordinal());
+//		initiate.setStatisticsType(DeviceStatisticsType.none.ordinal());
 		DsDeviceInitiate byId = deviceInitiateDao.findById(initiate.getKeyId());
 		if (byId == null) {
-			deviceInitiateDao.insert(initiate);
+			byId = deviceInitiateDao.findStartByUniqueIdHour(model.getUniqueId());
+			if (byId != null) {
+				if (byId.getCount() != null) {
+					byId.setCount(1+byId.getCount());
+				} else {
+					byId.setCount(2);
+				}
+				deviceInitiateDao.update(byId);
+			} else {
+				deviceInitiateDao.insert(initiate);
+			}
 		}
 //		//按天统计
 //		int countDay = deviceInitiateDao.countUniqueIdByDay(model.getUniqueId());
@@ -84,10 +93,20 @@ public class DsDeviceServiceImpl extends BaseServiceImpl<DsDevice> implements Ds
 		initiate.setIsNew(false);
 		initiate.setChannel(channel);
 		initiate.setKeyId(model.getKeyId());
-		initiate.setStatisticsType(DeviceStatisticsType.none.ordinal());
+//		initiate.setStatisticsType(DeviceStatisticsType.none.ordinal());
 		DsDeviceInitiate byId = deviceInitiateDao.findById(initiate.getKeyId());
 		if (byId == null) {
-			deviceInitiateDao.insert(initiate);
+			byId = deviceInitiateDao.findCloseByUniqueIdHour(model.getUniqueId());
+			if (byId != null) {
+				if (byId.getCount() != null) {
+					byId.setCount(1+byId.getCount());
+				} else {
+					byId.setCount(2);
+				}
+				deviceInitiateDao.update(byId);
+			} else {
+				deviceInitiateDao.insert(initiate);
+			}
 		}
 	}
 }

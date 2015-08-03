@@ -60,6 +60,12 @@ public interface DsEventDao extends BaseDao<DsEvent>{
 	 * @throws Exception
 	 */
 	public List<DsEvent> findByPage(int limit,int start) throws Exception;
+	/**
+	 * 获取当时 uniqueId 启动 的记录
+	 * @param uniqueId
+	 * @return
+	 */
+	public List<DsEvent> findByUniqueIdHour(String uniqueId) throws Exception;
 	
 
 }

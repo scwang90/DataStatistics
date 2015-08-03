@@ -21,10 +21,7 @@ public class AfStringUtil {
 
 	public static boolean equals(String l,String r){
 		if (l != r) {
-			if (l != null || r != null) {
-				return l.equals(r);
-			}
-			return false;
+			return ((l != null && r != null)) && l.equals(r);
 		}
 		return true;
 	}

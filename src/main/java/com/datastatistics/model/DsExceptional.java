@@ -26,6 +26,10 @@ public class DsExceptional{
 	 */
 	private String name;
 	/**
+	 * 次数统计
+	 */
+	private Integer count;
+	/**
 	 * 应用描述
 	 */
 	private String description;
@@ -76,6 +80,10 @@ public class DsExceptional{
 
 	public DsExceptional() {
 		// TODO Auto-generated constructor stub
+		this.count = 1;
+		this.message = "";
+		this.platform = "";
+		this.version = "";
 	}
 	
 	public String getKeyId(){
@@ -100,6 +108,14 @@ public class DsExceptional{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Integer getCount() {
+		return count;
+	}
+	
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 		
 	public String getDescription(){
@@ -198,5 +214,4 @@ public class DsExceptional{
 		this.status = status;
 	}
 		
-
 }

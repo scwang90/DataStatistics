@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.datastatistics.dao.base.BaseDaoImpl;
 import com.datastatistics.dao.DsEventDao;
+import com.datastatistics.dao.base.BaseDaoImpl;
 import com.datastatistics.model.DsEvent;
 
 /**
@@ -56,6 +56,14 @@ public class DsEventDaoImpl extends BaseDaoImpl<DsEvent> implements DsEventDao{
 	public List<DsEvent> findByPage(int limit, int start) throws Exception {
 		// TODO Auto-generated method stub
 		return super.findByPage(limit, start);
+	}
+
+	@Override
+	public List<DsEvent> findByUniqueIdHour(String uniqueId) throws Exception {
+		// TODO Auto-generated method stub
+		String where = "where uniqueId = '%s' and (DATE_FORMAT(createTime,'%%y-%%m-%%d-%%H')=DATE_FORMAT(NOW(),'%%y-%%m-%%d-%%H'))";
+		where = String.format(where,uniqueId);
+		return findWhere(where);
 	}
 }
 
