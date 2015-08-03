@@ -22,9 +22,9 @@ public class DsDeviceInitiate{
 	 */
 	private Integer type;
 	/**
-	 * 统计类型（0.无效 1.天数统计 2.小时统计 3.月份统计）
+	 * 次数统计
 	 */
-	private Integer statisticsType;
+	private Integer count;
 	/**
 	 * 设备唯一ID
 	 */
@@ -74,12 +74,12 @@ public class DsDeviceInitiate{
 		this.type = type;
 	}
 		
-	public Integer getStatisticsType(){
-		return this.statisticsType;
+	public Integer getCount(){
+		return this.count;
 	}
 
-	public void setStatisticsType(Integer statisticsType) {
-		this.statisticsType = statisticsType;
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 		
 	public String getUniqueId(){
