@@ -41,7 +41,6 @@ public class DsDeviceController extends StatisticsController<DsDevice>{
 	/**
 	 * 设备关闭统计
 	 * @param model
-	 * @param application
 	 * @param channel
 	 */
 	@RequestMapping("Uninstall/{channel}")
