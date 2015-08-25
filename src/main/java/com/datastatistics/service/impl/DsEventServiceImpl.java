@@ -45,7 +45,9 @@ public class DsEventServiceImpl extends BaseServiceImpl<DsEvent> implements DsEv
 					} else {
 						event.setCount(2);
 					}
-					dao.update(event);
+					String oldid = event.getKeyId();
+					event.setKeyId(model.getKeyId());
+					dao.update(event,oldid);
 					return;
 				}
 			}

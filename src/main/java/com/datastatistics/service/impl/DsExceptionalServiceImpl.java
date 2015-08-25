@@ -32,7 +32,9 @@ public class DsExceptionalServiceImpl extends BaseServiceImpl<DsExceptional> imp
 				} else {
 					byId.setCount(2);
 				}
-				dao.update(byId);
+				String oldid = byId.getKeyId();
+				byId.setKeyId(model.getKeyId());
+				dao.update(byId,oldid);
 			} else {
 				dao.insert(model);
 			}

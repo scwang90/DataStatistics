@@ -47,6 +47,17 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 		model = checkNullField(old, model);
 		return baseDao.update(model);
 	}
+	
+	@Override
+	public int update(T model, Object id) throws Exception {
+		// TODO Auto-generated method stub
+		T old = findById(getModelID(model));
+		if (old == null) {
+			throw new ServiceException("请求更新记录不存在或已经被删除！");
+		}
+		model = checkNullField(old, model);
+		return baseDao.update(model, id);
+	}
 
 	@Override
 	public int delete(Object id) throws Exception {

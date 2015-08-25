@@ -3,6 +3,7 @@ package com.datastatistics.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ import com.datastatistics.service.DsDeployService;
  * 数据库表ds_deploy 的Controller层实现
  * @author 树朾
  * @date 2015-08-24 11:35:55 中国标准时间
- */
+ */	
 @RestController
 @Intent("数据库表ds_deploy")
 @RequestMapping("DsDeploy")
@@ -24,15 +25,19 @@ public class DsDeployController extends GeneralController<DsDeploy>{
 	@Autowired
 	DsDeployService service;
 	
+	@RequestMapping("findByAppId/{appkey}")
+	public Object findByAppId(@RequestHeader("token") String token,@PathVariable String appkey) throws Exception{
+		return service.findByAppId(appkey);
+	}
+	
 	/**
 	 * 添加信息
 	 * @param model
 	 * @return
 	 * @throws Exception 
 	 */
-	@Override
 	@RequestMapping("Add")
-	public Object add(@RequestBody DsDeploy model) throws Exception {
+	public Object add(@RequestHeader("token") String token,@RequestBody DsDeploy model) throws Exception {
 		// TODO Auto-generated method stub
 		service.insert(model);
 		return null;
@@ -44,9 +49,8 @@ public class DsDeployController extends GeneralController<DsDeploy>{
 	 * @return
 	 * @throws Exception 
 	 */
-	@Override
 	@RequestMapping("Update")
-	public Object update(@RequestBody DsDeploy model) throws Exception {
+	public Object update(@RequestHeader("token") String token,@RequestBody DsDeploy model) throws Exception {
 		// TODO Auto-generated method stub
 		service.update(model);
 		return null;
@@ -58,9 +62,8 @@ public class DsDeployController extends GeneralController<DsDeploy>{
 	 * @return
 	 * @throws Exception 
 	 */
-	@Override
 	@RequestMapping("Get/{ID}")
-	public Object getByID(@PathVariable String ID) throws Exception {
+	public Object getByID(@RequestHeader("token") String token,@PathVariable String ID) throws Exception {
 		// TODO Auto-generated method stub
 		Object model = service.findById(ID);
 		if (model == null) {
@@ -74,9 +77,8 @@ public class DsDeployController extends GeneralController<DsDeploy>{
 	 * @return
 	 * @throws Exception 
 	 */
-	@Override
 	@RequestMapping("Delete/{ID}")
-	public Object delete(@PathVariable String ID) throws Exception {
+	public Object delete(@RequestHeader("token") String token,@PathVariable String ID) throws Exception {
 		// TODO Auto-generated method stub
 		service.delete(ID);
 		return null;
@@ -87,9 +89,8 @@ public class DsDeployController extends GeneralController<DsDeploy>{
 	 * @return
 	 * @throws Exception 
 	 */
-	@Override
 	@RequestMapping("CountAll")
-	public Object countAll() throws Exception {
+	public Object countAll(@RequestHeader("token") String token) throws Exception {
 		// TODO Auto-generated method stub
 		return service.countAll();
 	}
@@ -99,9 +100,8 @@ public class DsDeployController extends GeneralController<DsDeploy>{
 	 * @return
 	 * @throws Exception 
 	 */
-	@Override
 	@RequestMapping("GetList")
-	public Object getList() throws Exception {
+	public Object getList(@RequestHeader("token") String token) throws Exception {
 		// TODO Auto-generated method stub
 		return service.findAll();
 	}
@@ -113,9 +113,8 @@ public class DsDeployController extends GeneralController<DsDeploy>{
 	 * @return
 	 * @throws Exception 
 	 */
-	@Override
 	@RequestMapping("GetList/{pageSize}/{pageNo}")
-	public Object getListByPage(@PathVariable int pageSize,@PathVariable int pageNo) throws Exception {
+	public Object getListByPage(@RequestHeader("token") String token,@PathVariable int pageSize,@PathVariable int pageNo) throws Exception {
 		// TODO Auto-generated method stub
 		return service.listByPage(pageSize, pageNo);
 	}

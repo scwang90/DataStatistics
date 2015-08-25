@@ -230,6 +230,19 @@ public class BaseDaoDbUtilMYSQLImpl<T> implements MultiDao<T> {
 		return qr.update(sql, args.toArray(new Object[0]));
 	}
 
+	@Override
+	@Sql("update @{table} set @{seters} where @{id}=?")
+	public int update(T t, Object id) throws Exception {
+		// TODO Auto-generated method stub
+		Sql sqlann = AfStackTrace.getCurrentMethodAnnotation(Sql.class);
+		String sql = sqlann.value().replace("@{table}", model.table);
+		sql = sql.replace("@{seters}", String.valueOf(model.seters));
+		sql = sql.replace("@{id}", String.valueOf(model.id));
+		List<Object> args = getValuesAsList(t);
+		args.add(id);
+		return qr.update(sql, args.toArray(new Object[0]));
+	}
+
 	@Sql("select count(*) from @{table}")
 	public int countAll() throws Exception {
 		// TODO Auto-generated method stub

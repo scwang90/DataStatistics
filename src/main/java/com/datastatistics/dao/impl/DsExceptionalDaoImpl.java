@@ -61,8 +61,8 @@ public class DsExceptionalDaoImpl extends BaseDaoImpl<DsExceptional> implements 
 	@Override
 	public DsExceptional findBySimple(DsExceptional model) throws Exception {
 		// TODO Auto-generated method stub
-		String where = "WHERE appId='%s' and name='%s' and message='%s' and platform='%s'";
-		where = String.format(where, model.getAppId(),model.getName(),model.getMessage(),model.getPlatform());
+		String where = "WHERE appId='%s' and name='%s' and message='%s' and platform='%s' and channel='%s'";
+		where = String.format(where, model.getAppId(),model.getName(),model.getMessage(),model.getPlatform(),model.getChannel());
 		for (DsExceptional exceptional : findWhere(where)) {
 			return exceptional;
 		}

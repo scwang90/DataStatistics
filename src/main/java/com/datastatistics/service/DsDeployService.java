@@ -59,5 +59,12 @@ public interface DsDeployService extends BaseService<DsDeploy>{
 	 * @throws Exception
 	 */
 	public List<DsDeploy> findByPage(int limit, int start) throws Exception;
+	/**
+	 * 获取指定 appkey 的配置列表
+	 * @param appkey
+	 * @return
+	 * @throws Exception
+	 */
+	public List<DsDeploy> findByAppId(String appkey) throws Exception;
 	
 }

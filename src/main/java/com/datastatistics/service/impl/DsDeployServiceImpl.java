@@ -94,4 +94,10 @@ public class DsDeployServiceImpl extends BaseServiceImpl<DsDeploy> implements Ds
 		// TODO Auto-generated method stub
 		return dao.countAll();
 	}
+
+	@Override
+	public List<DsDeploy> findByAppId(String appkey) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.findByAppId(appkey);
+	}
 }

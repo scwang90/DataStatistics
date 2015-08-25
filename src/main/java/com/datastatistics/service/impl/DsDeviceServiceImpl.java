@@ -11,6 +11,7 @@ import com.datastatistics.model.DsDevice;
 import com.datastatistics.model.DsDeviceInitiate;
 import com.datastatistics.model.constant.DeviceInitiateType;
 import com.datastatistics.service.DsDeviceService;
+import com.datastatistics.util.AfStringUtil;
 import com.datastatistics.util.ServiceException;
 
 /**
@@ -41,10 +42,10 @@ public class DsDeviceServiceImpl extends BaseServiceImpl<DsDevice> implements Ds
 		}else {
 			dao.update(model);
 		}
-		initiate.setKeyId(model.getKeyId());
+//		initiate.setKeyId(model.getKeyId());
 //		initiate.setStatisticsType(DeviceStatisticsType.none.ordinal());
-		DsDeviceInitiate byId = deviceInitiateDao.findById(initiate.getKeyId());
-		if (byId == null) {
+		DsDeviceInitiate byId = deviceInitiateDao.findById(model.getKeyId());
+		if (byId == null || AfStringUtil.isEmpty(model.getKeyId())) {
 			byId = deviceInitiateDao.findStartByUniqueIdHour(model.getUniqueId());
 			if (byId != null) {
 				if (byId.getCount() != null) {
@@ -52,7 +53,9 @@ public class DsDeviceServiceImpl extends BaseServiceImpl<DsDevice> implements Ds
 				} else {
 					byId.setCount(2);
 				}
-				deviceInitiateDao.update(byId);
+				String oldid = byId.getKeyId();
+				byId.setKeyId(model.getKeyId());
+				deviceInitiateDao.update(byId,oldid);
 			} else {
 				deviceInitiateDao.insert(initiate);
 			}

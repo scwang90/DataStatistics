@@ -57,5 +57,11 @@ public class DsDeployDaoImpl extends BaseDaoImpl<DsDeploy> implements DsDeployDa
 		// TODO Auto-generated method stub
 		return super.findByPage(limit, start);
 	}
+
+	@Override
+	public List<DsDeploy> findByAppId(String appkey) throws Exception {
+		// TODO Auto-generated method stub
+		return super.findByPropertyName("appId", appkey);
+	}
 }
 

@@ -34,6 +34,13 @@ public class BaseDaoImpl<T> extends BaseDaoDbUtilMYSQLImpl<T> implements BaseDao
 		AfReflecter.setMemberNoException(t, "updateTime", new Date());
 		return super.update(t);
 	}
+	
+	@Override
+	public int update(T t, Object id) throws Exception {
+		// TODO Auto-generated method stub
+		AfReflecter.setMemberNoException(t, "updateTime", new Date());
+		return super.update(t, id);
+	}
 
 	/**
 	 * 检查ID字段是否为空，否则设置一个新ID
