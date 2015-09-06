@@ -94,6 +94,7 @@ public class ControllerAspect {
 		AfDesHelper helper = new AfDesHelper(strKey);
 		try {
 			token = helper.decrypt(token.toString());
+			token.toString().charAt(2);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			throw new ServiceException("无效访问");

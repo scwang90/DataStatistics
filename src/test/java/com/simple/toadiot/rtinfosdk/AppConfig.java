@@ -69,7 +69,7 @@ public class AppConfig {
 	 * 静态加载配置文件信息
 	 */
 	static {
-		String path = "config.properties";
+		String path = "/config.properties";
 		InputStream inputStream = AppConfig.class.getResourceAsStream(path);
 		Properties properties = new Properties();
 		try {
