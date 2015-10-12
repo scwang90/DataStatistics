@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
+ * 为你写诗
  * Created by SCWANG on 2015-09-06.
  */
 @RestController
