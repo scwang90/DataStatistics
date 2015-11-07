@@ -37,7 +37,7 @@ public class SnSameNameController extends GeneralController<SnSameName>{
 	
 	/**
 	 * 查询同名数据
-	 * @param model
+	 * @param name
 	 * @return
 	 * @throws Exception
 	 */

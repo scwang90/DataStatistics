@@ -41,7 +41,6 @@ public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implement
 	 */
 	@Override
 	public int post(SnSameName model) throws Exception {
-		// TODO Auto-generated method stub
 		List<CountProvinceEntity> entities = model.getCountProvinceEntitys();
 		model.setCountCountry(0);
 		for (int i = 0; i < entities.size(); i++) {
@@ -61,10 +60,11 @@ public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implement
 
 	@Override
 	public List<SameName> query(String name) throws Exception {
-		// TODO Auto-generated method stub
 		List<SameName> names = new ArrayList<SameName>();
 		List<SnProvince> provinces = provinceDao.findAll();
-		for (SnSameName snSameName : snSameNameDaoImpl.findByPropertyName("sameName", name)) {
+		List<SnSameName> findByPropertyName = snSameNameDaoImpl.findByPropertyName("sameName", name);
+		for (int i = 0; i < findByPropertyName.size(); i++) {
+			SnSameName snSameName = findByPropertyName.get(i);
 			Class<CountProvinceEntity> clazz = CountProvinceEntity.class;
 			List<CountProvinceEntity> objects = JacksonUtil.toObjects(snSameName.getCountProvince(), clazz);
 			for (SnProvince snProvince : provinces) {
@@ -74,10 +74,10 @@ public class SnSameNameServiceImpl extends BaseServiceImpl<SnSameName> implement
 						SameName sameName = new SameName();
 						sameName.code = snProvince.getCode();
 						sameName.name = snProvince.getName();
-						sameName.people =  entity.getPoepleCount();
+						sameName.people = entity.getPoepleCount();
 						names.add(sameName);
 					}
-				}	
+				}
 			}
 			break;
 		}
